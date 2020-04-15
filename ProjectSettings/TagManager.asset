@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - InfoWorld
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,18 @@ TagManager:
   - name: 1
     uniqueID: 202599137
     locked: 0
+  - name: 2
+    uniqueID: 2466965255
+    locked: 0
+  - name: 3
+    uniqueID: 407062079
+    locked: 0
   - name: Top
     uniqueID: 2296970973
+    locked: 0
+  - name: UI
+    uniqueID: 3681872897
+    locked: 0
+  - name: VeryTop
+    uniqueID: 2110499523
     locked: 0

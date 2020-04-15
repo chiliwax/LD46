@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ID : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]  public string name_item;
+    [SerializeField]  public int id_item;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] public Canvas C_VT;
+    [SerializeField] public GameObject objectParent;
+
 }
