@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - InfoWorld
+  - inventaireSlot
   layers:
   - Default
   - TransparentFX
@@ -42,24 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Fond
-    uniqueID: 3219360507
+  - name: bg
+    uniqueID: 2665809239
     locked: 0
   - name: 1
-    uniqueID: 202599137
+    uniqueID: 1128428233
     locked: 0
-  - name: 2
-    uniqueID: 2466965255
+  - name: top
+    uniqueID: 3902023545
     locked: 0
-  - name: 3
-    uniqueID: 407062079
-    locked: 0
-  - name: Top
-    uniqueID: 2296970973
-    locked: 0
-  - name: UI
-    uniqueID: 3681872897
-    locked: 0
-  - name: VeryTop
-    uniqueID: 2110499523
+  - name: 1erplan
+    uniqueID: 34948347
     locked: 0
