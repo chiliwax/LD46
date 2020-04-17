@@ -37,6 +37,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
      public void OnPointerDown(PointerEventData evenData) {
         if (DEV_Comment) Debug.Log("You grab " + GetComponent<ID>().name_item + ".");
+        Debug.Log(gameObject.name);
         if (inThePocket == false) localPositionInitial = rectTransform.localPosition; //sauvegarde sa position d'origine sur la map
         inThePocket = false;
         if (pocket != null)
