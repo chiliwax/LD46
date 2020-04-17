@@ -7,19 +7,21 @@ using UnityEngine.EventSystems;
 public class Bag : MonoBehaviour, IDropHandler
 {
     [SerializeField] public Boolean unlock = true;
-    private Boolean empty = true;
+    [SerializeField] public Boolean DEV_Comment = false;
+    public Boolean empty = true;
     public GameObject butin;
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("drop in bag");
+        if (DEV_Comment) Debug.Log("drop in bag");
         if (eventData.pointerDrag != null & empty & unlock)
         {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             eventData.pointerDrag.GetComponent<DragDrop>().inThePocket = true;
-            //empty = false;
+            eventData.pointerDrag.GetComponent<DragDrop>().pocket = gameObject;
+            empty = false;
 
-            Debug.Log("bag is full");
+            if (DEV_Comment) Debug.Log("bag is full");
             butin = eventData.pointerDrag;
         }
     }

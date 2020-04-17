@@ -10,13 +10,21 @@ public class ID : MonoBehaviour
     [SerializeField] public string description_item;
     [SerializeField]  public int id_item;
 
-    [SerializeField] public Canvas canvas; //canva maitre (doit etre en 1ER plan)
-    [SerializeField] public GameObject objectParent; //parent de l'objet
-
     [SerializeField] public Boolean show_description = true;
 
-    private void OnMouseOver()
+    public Canvas canvas; //canva maitre (doit etre en 1ER plan)
+    public GameObject objectParent; //parent de l'objet
+
+    
+
+    private void Start()
     {
-        
+        objectParent = transform.parent.gameObject;
+        canvas = GameObject.FindGameObjectWithTag("MasterCanva").GetComponent<Canvas>();
+    }
+
+    public void kill()
+    {
+        GameObject.Destroy(gameObject, 0f);
     }
 }

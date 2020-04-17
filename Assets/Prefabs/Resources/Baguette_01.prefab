@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2369409096042344081
+--- !u!1 &7954643667449748129
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,29 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 55627337131357807}
-  - component: {fileID: 1973803891575251893}
-  - component: {fileID: 2940340681816968125}
-  - component: {fileID: 4316756271720256502}
-  - component: {fileID: 7261491523318539863}
-  - component: {fileID: -2767753393671433282}
+  - component: {fileID: 7373045141837310936}
+  - component: {fileID: 6529556605631352515}
+  - component: {fileID: 3988850557136370794}
+  - component: {fileID: 2249654614671046017}
+  - component: {fileID: 4273273208883907}
+  - component: {fileID: -2260000820442010670}
   m_Layer: 5
-  m_Name: Branche_01
+  m_Name: Baguette_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &55627337131357807
+--- !u!224 &7373045141837310936
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2369409096042344081}
+  m_GameObject: {fileID: 7954643667449748129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.027674926, y: 0.027674926, z: 0.027674926}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,21 +40,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1973803891575251893
+--- !u!222 &6529556605631352515
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2369409096042344081}
+  m_GameObject: {fileID: 7954643667449748129}
   m_CullTransparentMesh: 0
---- !u!114 &2940340681816968125
+--- !u!114 &3988850557136370794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2369409096042344081}
+  m_GameObject: {fileID: 7954643667449748129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b4ae7db2d0624947846079d06ae115d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28a6fa647cc37fb4db14b7ad1aefc32a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,45 +76,46 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4316756271720256502
+--- !u!114 &2249654614671046017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2369409096042344081}
+  m_GameObject: {fileID: 7954643667449748129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb39ad969b18f3743b0e8f9a41dae3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inThePocket: 0
+  pocket: {fileID: 0}
   DEV_Comment: 0
---- !u!114 &7261491523318539863
+--- !u!114 &4273273208883907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2369409096042344081}
+  m_GameObject: {fileID: 7954643667449748129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5325aff492293e54899d880456df8b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name_item: Branche longue
-  description_item: Une langue branche rudimentaire
-  id_item: 2
+  name_item: Baguette rustique
+  description_item: Une simple baguette peinant a faire son office
+  id_item: 3
+  show_description: 1
   canvas: {fileID: 0}
   objectParent: {fileID: 0}
-  show_description: 1
---- !u!225 &-2767753393671433282
+--- !u!225 &-2260000820442010670
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2369409096042344081}
+  m_GameObject: {fileID: 7954643667449748129}
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
