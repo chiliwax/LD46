@@ -14,6 +14,7 @@ public class ID : MonoBehaviour
 
     public Canvas canvas; //canva maitre (doit etre en 1ER plan)
     public GameObject objectParent; //parent de l'objet
+    [SerializeField]  public string name_prefab;
 
     
 
