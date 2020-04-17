@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
-
-public class Resolution : MonoBehaviour
+ 
+/// <summary>
+/// Skrypt odpowiada za usatwienie rozdzielczosci kemerze
+/// </summary>
+public class CameraResolution : MonoBehaviour
 {
-  
+ 
  
     #region Pola
     private int ScreenSizeX = 0;
@@ -82,3 +84,4 @@ public class Resolution : MonoBehaviour
     }
     #endregion
 }
+ 
