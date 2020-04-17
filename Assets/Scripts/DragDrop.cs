@@ -36,7 +36,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
      public void OnPointerDown(PointerEventData evenData) {
         if (DEV_Comment) Debug.Log("You grab " + GetComponent<ID>().name_item + ".");
-        localPositionInitial = rectTransform.localPosition;
+        if (inThePocket == false) localPositionInitial = rectTransform.localPosition; //sauvegarde sa position d'origine sur la map
+        inThePocket = false;
         transform.parent = GetComponent<ID>().canvas.transform; // l'objet est mis sur le canvas maitre, donc un premier plan
 
     }

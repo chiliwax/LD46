@@ -102,12 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5325aff492293e54899d880456df8b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name_item: 
-  description_item: 
-  id_item: 0
-  C_VT: {fileID: 0}
+  name_item: Gemme rutilante
+  description_item: Une pierre brillant de mille feux.
+  id_item: 1
   canvas: {fileID: 0}
   objectParent: {fileID: 0}
+  show_description: 1
 --- !u!225 &-6083284047707149059
 CanvasGroup:
   m_ObjectHideFlags: 0
