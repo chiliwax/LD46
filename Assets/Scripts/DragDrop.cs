@@ -11,6 +11,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private Vector3 localPositionInitial;
     private CanvasGroup canvasGroup;
     public Boolean inThePocket = false;
+    public GameObject pocket= null;
     [SerializeField] public Boolean DEV_Comment = false;
 
     private void Awake(){
@@ -38,6 +39,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if (DEV_Comment) Debug.Log("You grab " + GetComponent<ID>().name_item + ".");
         if (inThePocket == false) localPositionInitial = rectTransform.localPosition; //sauvegarde sa position d'origine sur la map
         inThePocket = false;
+        if (pocket != null)
+        {
+            pocket.GetComponent<Bag>().empty = true;
+            pocket.GetComponent<Bag>().butin = null;
+            pocket = null;
+        }
         transform.parent = GetComponent<ID>().canvas.transform; // l'objet est mis sur le canvas maitre, donc un premier plan
 
     }
