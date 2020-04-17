@@ -216,6 +216,7 @@ crashlytics-build.properties
 
 
 ### VisualStudioCode ###
+.vscode/
 .vscode/*
 .vscode/settings.json
 !.vscode/settings.json
