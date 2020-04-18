@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class inventory : MonoBehaviour
 {
     [SerializeField] List<Item> items;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
+    [Space]
+    [SerializeField] Transform ItemResult;
+    private ItemSlot craft;
 
     private void OnValidate()
     {
@@ -23,7 +27,7 @@ public class inventory : MonoBehaviour
         {
             itemSlots[i].Item = items[i];
         }
-         for (; i < itemSlots.Length;i++)
+        for (; i < itemSlots.Length; i++)
         {
             itemSlots[i].Item = null;
         }
@@ -32,22 +36,35 @@ public class inventory : MonoBehaviour
     public void AddItem(Item item)
     {
         if (IsFull())
-            return ;
+            return;
         items.Add(item);
         RefreshUI();
-        return ;
+        return;
     }
 
     public void RemoveItem(int i)
     {
-        if (items.Remove(items[i])) {
+        if (items.Remove(items[i]))
+        {
             RefreshUI();
             return;
         }
         return;
     }
 
-    public bool IsFull() {
+    public void Craft()
+    {
+        craft = ItemResult.GetComponentInChildren<ItemSlot>();
+        foreach (var item in items)
+        {
+            Debug.Log(item.name+"\n");
+        }
+        craft.Item = Resources.Load<Item>("");
+        RefreshUI();
+    }
+
+    public bool IsFull()
+    {
         return items.Count >= itemSlots.Length;
     }
 }
