@@ -137,7 +137,7 @@ GameObject:
   m_Layer: 5
   m_Name: Result
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1053,13 +1053,14 @@ GameObject:
   - component: {fileID: 582707773}
   - component: {fileID: 582707772}
   - component: {fileID: 582707771}
+  - component: {fileID: 582707774}
   m_Layer: 5
   m_Name: Delete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &582707770
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1122,7 +1123,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 582707772}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 582707774}
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &582707772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,6 +1171,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582707769}
   m_CullTransparentMesh: 0
+--- !u!114 &582707774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582707769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4ad0b95df8e432cbdfbe4476438708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToShow:
+  - {fileID: 539984627}
+  - {fileID: 192700325}
+  ToHide:
+  - {fileID: 582707769}
+  - {fileID: 1048418911}
+  Result: {fileID: 49176445}
 --- !u!1 &615474377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,17 +1611,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874877985}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 49176443}
-  m_Father: {fileID: 1801250751}
-  m_RootOrder: 1
+  m_Father: {fileID: 1405888673}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -248}
+  m_AnchoredPosition: {x: -470, y: -394}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &991636460
@@ -1713,7 +1744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1048418912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2238,7 +2269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -633, y: -293.8}
+  m_AnchoredPosition: {x: -744, y: -391}
   m_SizeDelta: {x: 350, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1365859739
@@ -2295,6 +2326,7 @@ RectTransform:
   m_Children:
   - {fileID: 192700326}
   - {fileID: 1801250751}
+  - {fileID: 874877986}
   m_Father: {fileID: 991636464}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3011,7 +3043,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2051112561}
-  - {fileID: 874877986}
   m_Father: {fileID: 1405888673}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3032,7 +3063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fa5aba6a2114ec38bf222395ee7f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipes: []
   items: []
   itemsParent: {fileID: 2051112561}
   itemSlots:
@@ -3041,6 +3071,12 @@ MonoBehaviour:
   - {fileID: 1416190149}
   - {fileID: 482105127}
   ItemResult: {fileID: 874877986}
+  ToHide:
+  - {fileID: 192700325}
+  - {fileID: 539984627}
+  ToShow:
+  - {fileID: 1048418911}
+  - {fileID: 582707769}
 --- !u!1 &1814385678
 GameObject:
   m_ObjectHideFlags: 0

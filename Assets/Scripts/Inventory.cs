@@ -6,12 +6,14 @@ using System;
 
 public class inventory : MonoBehaviour
 {
-    public recipes[] recipes;
+    private recipes[] recipes;
     [SerializeField] List<Item> items;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
     [Space]
     [SerializeField] Transform ItemResult;
+    [SerializeField] GameObject[] ToHide;
+    [SerializeField] GameObject[] ToShow;
     private ItemSlot craft;
 
     private void Start()
@@ -75,7 +77,7 @@ public class inventory : MonoBehaviour
 
         foreach (var recipe in recipes)
         {
-            list2.RemoveRange(0,list2.Count);
+            list2.RemoveRange(0, list2.Count);
             foreach (var item in recipe.items)
             {
                 list2.Add(item.objectName);
@@ -94,6 +96,11 @@ public class inventory : MonoBehaviour
                     }
                 }
                 craft.Item = recipe.result;
+                foreach (var item in ToHide)
+                    item.SetActive(false);
+                foreach (var item in ToShow)
+                    item.SetActive(true);
+                
             }
         }
         items.RemoveRange(0, items.Count);
