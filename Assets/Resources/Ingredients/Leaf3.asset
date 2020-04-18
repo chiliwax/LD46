@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
   m_Name: Leaf3
   m_EditorClassIdentifier: 
-  objectName: 3
+  objectName: Ingredient 3
+  description: Description 3
   Icon: {fileID: 21300000, guid: c31627cc8860a4ef485ac2be1377d7d6, type: 3}
