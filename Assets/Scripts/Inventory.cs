@@ -64,12 +64,8 @@ public class inventory : MonoBehaviour
         craft = ItemResult.GetComponentInChildren<ItemSlot>();
         craft.Item = null;
 
-        foreach (var item in items)
-        {
-            Debug.Log(item.name + "\n");
-        }
-
-        List<string> list1 = new List<String> { };
+        List<String> list1 = new List<String> { };
+        List<String> list2 = new List<String> { };
 
         foreach (var item in items)
         {
@@ -77,16 +73,15 @@ public class inventory : MonoBehaviour
             list1.Sort();
         }
 
-        List<String> list2 = new List<String> { };
-
-
         foreach (var recipe in recipes)
         {
+            list2.RemoveRange(0,list2.Count);
             foreach (var item in recipe.items)
             {
                 list2.Add(item.name);
                 list2.Sort();
             }
+
             if (list1.Count == list2.Count)
             {
                 for (int i = 0; i < list1.Count; i++)
