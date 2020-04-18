@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
-  m_Name: Leaf2
+  m_Name: Leaf6
   m_EditorClassIdentifier: 
-  objectName: 2
-  Icon: {fileID: 21300000, guid: e5698096782db4b2e90d45305e1af9ab, type: 3}
+  objectName: 6
+  Icon: {fileID: 21300000, guid: bc05067ead31f4322bf6d2a4940a4888, type: 3}
