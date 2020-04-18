@@ -60,36 +60,48 @@ public class inventory : MonoBehaviour
     }
 
     public void Craft()
-    { 
+    {
         craft = ItemResult.GetComponentInChildren<ItemSlot>();
         craft.Item = null;
+
         foreach (var item in items)
         {
             Debug.Log(item.name + "\n");
         }
 
+        List<string> list1 = new List<String> { };
+
+        foreach (var item in items)
+        {
+            list1.Add(item.name);
+            list1.Sort();
+        }
+
+        List<String> list2 = new List<String> { };
+
+
         foreach (var recipe in recipes)
         {
-            if (recipe.items.Length == items.Count)
+            foreach (var item in recipe.items)
             {
-                for (int i = 0; i < items.Count; i++)
+                list2.Add(item.name);
+                list2.Sort();
+            }
+            if (list1.Count == list2.Count)
+            {
+                for (int i = 0; i < list1.Count; i++)
                 {
-                    Debug.Log(recipe.items[i].name + " " + items[i].name);
-                    if(!items.Contains(recipe.items[i])) {
+                    if (list1[i] != list2[i])
+                    {
+                        items.RemoveRange(0, items.Count);
+                        RefreshUI();
                         return;
                     }
                 }
-                
-                // if (recipe.items[0].name.ToString() == items[0].name.ToString() &&
-                //     recipe.items[1].name.ToString() == items[1].name.ToString())
-                // {
-                     craft.Item = recipe.result;
-                // }
+                craft.Item = recipe.result;
             }
-            
-
         }
-
+        items.RemoveRange(0, items.Count);
         RefreshUI();
         return;
     }
