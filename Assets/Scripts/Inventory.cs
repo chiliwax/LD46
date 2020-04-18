@@ -2,30 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class inventory
+public class inventory : MonoBehaviour
 {
-    private static int TotalSlots = 10;
-    private static int UsedSlots = 0;
-    private static List<string> items;
+    [SerializeField] List<Item> items;
+    [SerializeField] Transform itemsParent;
+    [SerializeField] ItemSlot[] itemSlots;
 
-    public bool additem(string item)
+    private void OnValidate()
     {
-        if (UsedSlots < TotalSlots)
+        if (itemsParent != null)
         {
-            items.Add(item);
+            itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
+        }
+        RefreshUI();
+    }
+    private void RefreshUI()
+    {
+        int i = 0;
+        for (; i < items.Count && i < itemSlots.Length; i++)
+        {
+            itemSlots[i].Item = items[i];
+        }
+         for (; i < itemSlots.Length;i++)
+        {
+            itemSlots[i].Item = null;
+        }
+    }
+
+    public void AddItem(Item item)
+    {
+        if (IsFull())
+            return ;
+        items.Add(item);
+        RefreshUI();
+        return ;
+    }
+
+    public bool RemoveItem(Item item)
+    {
+        if (items.Remove(item)) {
+            RefreshUI();
             return true;
         }
         return false;
     }
-    public int getFreeSpace()
-    {
-        return (TotalSlots - UsedSlots);
-    }
 
-    public List<string> getItems()
-    {
-        return items;
+    public bool IsFull() {
+        return items.Count >= itemSlots.Length;
     }
-
 }
