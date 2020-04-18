@@ -38,13 +38,13 @@ public class inventory : MonoBehaviour
         return ;
     }
 
-    public bool RemoveItem(Item item)
+    public void RemoveItem(int i)
     {
-        if (items.Remove(item)) {
+        if (items.Remove(items[i])) {
             RefreshUI();
-            return true;
+            return;
         }
-        return false;
+        return;
     }
 
     public bool IsFull() {
