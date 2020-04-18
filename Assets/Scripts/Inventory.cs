@@ -60,8 +60,9 @@ public class inventory : MonoBehaviour
     }
 
     public void Craft()
-    {
+    { 
         craft = ItemResult.GetComponentInChildren<ItemSlot>();
+        craft.Item = null;
         foreach (var item in items)
         {
             Debug.Log(item.name + "\n");
@@ -71,23 +72,26 @@ public class inventory : MonoBehaviour
         {
             if (recipe.items.Length == items.Count)
             {
-                Array.Sort(recipe.items);
-                items.Sort();
-                Debug.Log(recipe.items[0].name + " " + items[0].name);
-                Debug.Log(recipe.items[1].name + " " + items[1].name);
-                Debug.Log(recipe.items[2].name + " " + items[2].name);
-                Debug.Log(recipe.items[3].name + " " + items[3].name);
+                for (int i = 0; i < items.Count; i++)
+                {
+                    Debug.Log(recipe.items[i].name + " " + items[i].name);
+                    if(!items.Contains(recipe.items[i])) {
+                        return;
+                    }
+                }
+                
                 // if (recipe.items[0].name.ToString() == items[0].name.ToString() &&
                 //     recipe.items[1].name.ToString() == items[1].name.ToString())
                 // {
-                //     craft.Item = recipe.result;
+                     craft.Item = recipe.result;
                 // }
             }
-            craft.Item = null;
+            
 
         }
 
         RefreshUI();
+        return;
     }
 
     public bool IsFull()
