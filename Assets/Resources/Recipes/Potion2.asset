@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d22a67ae40f74a8b9987b0db14da8fb, type: 3}
   m_Name: Potion2
   m_EditorClassIdentifier: 
-  items: []
-  result: {fileID: 0}
+  items:
+  - {fileID: 11400000, guid: 1426746013d7c4896a778beb2c7c9661, type: 2}
+  - {fileID: 11400000, guid: 1426746013d7c4896a778beb2c7c9661, type: 2}
+  - {fileID: 11400000, guid: c138a5ad76f4c45c799269611277f0a6, type: 2}
+  - {fileID: 11400000, guid: c138a5ad76f4c45c799269611277f0a6, type: 2}
+  result: {fileID: 11400000, guid: 00cf90c84452546859f7a91e1a400535, type: 2}

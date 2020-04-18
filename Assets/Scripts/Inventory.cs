@@ -69,7 +69,7 @@ public class inventory : MonoBehaviour
 
         foreach (var item in items)
         {
-            list1.Add(item.name);
+            list1.Add(item.objectName);
             list1.Sort();
         }
 
@@ -78,7 +78,7 @@ public class inventory : MonoBehaviour
             list2.RemoveRange(0,list2.Count);
             foreach (var item in recipe.items)
             {
-                list2.Add(item.name);
+                list2.Add(item.objectName);
                 list2.Sort();
             }
 
