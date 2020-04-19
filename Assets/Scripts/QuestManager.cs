@@ -12,9 +12,17 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
+        
+        ResetQuests();
         NewQuest();
     }
 
+    void ResetQuests(){
+        foreach (var item in quests)
+        {
+            item.end = false;
+        }
+    }
 
     public void NewQuest()
     {
