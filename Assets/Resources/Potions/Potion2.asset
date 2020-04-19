@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Potion2
   m_EditorClassIdentifier: 
   objectName: potion 2
+  description: YOUHOU LE BOOSTER DENERGIE !
   Icon: {fileID: 21300000, guid: 115f94b770dc6416cbb3299e7ed83f38, type: 3}
