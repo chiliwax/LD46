@@ -12,12 +12,13 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        
+
         ResetQuests();
         NewQuest();
     }
 
-    void ResetQuests(){
+    void ResetQuests()
+    {
         foreach (var item in quests)
         {
             item.end = false;
@@ -30,21 +31,26 @@ public class QuestManager : MonoBehaviour
         foreach (var item in quests)
         {
             //All conditions
-            if (item.end == false) {
+            if (item.end == false)
+            {
                 Debug.Log("add");
                 available_quests.Add(item);
             }
         }
         Debug.Log("available quests " + available_quests.Count);
-        if(available_quests.Count == 0) {
+        if (available_quests.Count == 0)
+        {
             EndGame();
             return;
         }
         activeQuest = available_quests[Random.Range(0, available_quests.Count)];
 
-        
+        StopAllCoroutines();
         title.text = activeQuest.QuestName;
-        description.text = activeQuest.description;
+        StartCoroutine(TypeSentence(activeQuest.QuestName,title));
+        StartCoroutine(TypeSentence(activeQuest.description,description));
+        // title.text = activeQuest.QuestName;
+        // description.text = activeQuest.description;
         return;
     }
 
@@ -54,7 +60,8 @@ public class QuestManager : MonoBehaviour
         description.text = null;
         foreach (var item in quests)
         {
-            if (item.QuestName == activeQuest.QuestName) {
+            if (item.QuestName == activeQuest.QuestName)
+            {
                 item.end = true;
             }
         }
@@ -64,5 +71,15 @@ public class QuestManager : MonoBehaviour
     void EndGame()
     {
         Debug.Log("GameFinish !");
+    }
+
+    IEnumerator TypeSentence(string text, TextMeshProUGUI mesh)
+    {
+        mesh.text = "";
+        foreach (char letter in text)
+        {
+            mesh.text += letter;
+            yield return null;
+        }
     }
 }
