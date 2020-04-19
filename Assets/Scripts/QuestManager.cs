@@ -13,7 +13,6 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-
         ResetQuests();
         NewQuest();
     }
@@ -23,6 +22,9 @@ public class QuestManager : MonoBehaviour
         foreach (var item in quests)
         {
             item.end = false;
+            item.PlayerAnswer.RemoveRange(0, item.PlayerAnswer.Count);
+            item.IsWin = false;
+            item.IsDead = false;
         }
     }
 
@@ -82,26 +84,54 @@ public class QuestManager : MonoBehaviour
             list2.Sort();
         }
 
-        if (list1.Count == list2.Count) {
-            for (int i = 0; i < list1.Count; i++)
+        if (list1.Count >= list2.Count)
+        {
+            int i = 0;
+            int n = 0;
+
+            while (i < list2.Count)
+            {
+                if (n >= list1.Count)
                 {
-                    if (list1[i] != list2[i]) {
-                        activeQuest.IsWin = false;
-                        activeQuest.IsDead = false;
-                        return;
-                    }
+                    activeQuest.IsWin = false;
+                    activeQuest.IsDead = false;
+                    return;
                 }
+                if (list1[n] == list2[i])
+                {
+                    i++;
+                    n++;
+                } else n++;
+            }
             activeQuest.IsWin = true;
             activeQuest.IsDead = false;
         }
+        else
+        {
+            activeQuest.IsWin = false;
+            activeQuest.IsDead = false;
+            return;
+        }
+        // if (list1.Count == list2.Count) {
+        //     for (int i = 0; i < list1.Count; i++)
+        //         {
+        //             if (list1[i] != list2[i]) {
+        //                 activeQuest.IsWin = false;
+        //                 activeQuest.IsDead = false;
+        //                 return;
+        //             }
+        //         }
+        //     activeQuest.IsWin = true;
+        //     activeQuest.IsDead = false;
+        // }
     }
 
     public void EndQuest()
     {
         checkWin();
-        Debug.Log("Win : "+activeQuest.IsWin);
-        Debug.Log("Dead : "+activeQuest.IsDead);
-        Debug.Log("Nb compo inside : "+activeQuest.PlayerAnswer.Count);
+        Debug.Log("Win : " + activeQuest.IsWin);
+        Debug.Log("Dead : " + activeQuest.IsDead);
+        Debug.Log("Nb compo inside : " + activeQuest.PlayerAnswer.Count);
         FinishQuests.Add(activeQuest);
         title.text = null;
         description.text = null;
