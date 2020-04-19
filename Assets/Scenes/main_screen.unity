@@ -926,6 +926,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 874877987}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: AddToTable
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &539984630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1180,15 +1191,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 582707774}
-        m_MethodName: Onclick
-        m_Mode: 1
+      - m_Target: {fileID: 874877987}
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: AddToTrash
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &582707772
@@ -1654,7 +1665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 874877986}
   - component: {fileID: 874877987}
-  - component: {fileID: 874877988}
+  - component: {fileID: 874877989}
   m_Layer: 5
   m_Name: ResultPos
   m_TagString: Untagged
@@ -1701,7 +1712,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &874877988
+--- !u!114 &874877989
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1710,10 +1721,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 874877985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece0ef628325e413393623011cf232c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a4ad0b95df8e432cbdfbe4476438708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  child: {fileID: 49176445}
+  ToShow:
+  - {fileID: 192700325}
+  - {fileID: 539984627}
+  ToHide:
+  - {fileID: 582707769}
+  - {fileID: 1048418911}
+  Result: {fileID: 49176445}
 --- !u!1 &991636460
 GameObject:
   m_ObjectHideFlags: 0
