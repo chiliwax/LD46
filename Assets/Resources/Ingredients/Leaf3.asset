@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Ingredient 3
   description: Description 3
-  Icon: {fileID: 21300000, guid: c31627cc8860a4ef485ac2be1377d7d6, type: 3}
+  Icon: {fileID: 21300000, guid: 0b7059d10bdf5451a989f39839f3791d, type: 3}
