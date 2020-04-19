@@ -5,6 +5,7 @@ using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
+    private List<Quests> FinishQuests = new List<Quests> { };
     public Quests[] quests;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
@@ -47,15 +48,61 @@ public class QuestManager : MonoBehaviour
 
         StopAllCoroutines();
         title.text = activeQuest.QuestName;
-        StartCoroutine(TypeSentence(activeQuest.QuestName,title));
-        StartCoroutine(TypeSentence(activeQuest.description,description));
+        StartCoroutine(TypeSentence(activeQuest.QuestName, title));
+        StartCoroutine(TypeSentence(activeQuest.description, description));
         // title.text = activeQuest.QuestName;
         // description.text = activeQuest.description;
         return;
     }
 
+    private void checkWin()
+    {
+        List<string> list1 = new List<string> { };
+        List<string> list2 = new List<string> { };
+
+        foreach (var item in activeQuest.ToNotAnswer)
+        {
+            if (activeQuest.PlayerAnswer.Contains(item))
+            {
+                activeQuest.IsWin = false;
+                activeQuest.IsDead = true;
+                return;
+            }
+        }
+
+        foreach (var item in activeQuest.PlayerAnswer)
+        {
+            list1.Add(item.objectName);
+            list1.Sort();
+        }
+
+        foreach (var item in activeQuest.ToAnswer)
+        {
+            list2.Add(item.objectName);
+            list2.Sort();
+        }
+
+        if (list1.Count == list2.Count) {
+            for (int i = 0; i < list1.Count; i++)
+                {
+                    if (list1[i] != list2[i]) {
+                        activeQuest.IsWin = false;
+                        activeQuest.IsDead = false;
+                        return;
+                    }
+                }
+            activeQuest.IsWin = true;
+            activeQuest.IsDead = false;
+        }
+    }
+
     public void EndQuest()
     {
+        checkWin();
+        Debug.Log("Win : "+activeQuest.IsWin);
+        Debug.Log("Dead : "+activeQuest.IsDead);
+        Debug.Log("Nb compo inside : "+activeQuest.PlayerAnswer.Count);
+        FinishQuests.Add(activeQuest);
         title.text = null;
         description.text = null;
         foreach (var item in quests)
@@ -66,6 +113,11 @@ public class QuestManager : MonoBehaviour
             }
         }
         NewQuest();
+    }
+
+    public void AddItemInQuest(ItemSlot item)
+    {
+        activeQuest.PlayerAnswer.Add(item.Item);
     }
 
     void EndGame()

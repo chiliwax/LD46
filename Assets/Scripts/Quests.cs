@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu]
 public class Quests : ScriptableObject
@@ -15,4 +17,10 @@ public class Quests : ScriptableObject
 
     [HideInInspector]
     public bool end = false;
+    [HideInInspector]
+    public bool IsWin = false;
+    [HideInInspector]
+    public bool IsDead = false;
+    [HideInInspector]
+    public List<Item> PlayerAnswer = new List<Item> {};
 }
