@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] Transform ItemResult;
     [SerializeField] GameObject[] ToHide;
     [SerializeField] GameObject[] ToShow;
+    [SerializeField] CanvasGroup[] RaycastToDesactivate;
     private ItemSlot craft;
 
     private void Start()
@@ -100,7 +101,10 @@ public class Inventory : MonoBehaviour
                     item.SetActive(false);
                 foreach (var item in ToShow)
                     item.SetActive(true);
-                
+                foreach (var item in RaycastToDesactivate)
+                {
+                    item.blocksRaycasts = false;
+                }
             }
         }
         items.RemoveRange(0, items.Count);

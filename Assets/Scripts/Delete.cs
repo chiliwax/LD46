@@ -8,6 +8,7 @@ public class Delete : MonoBehaviour
     [SerializeField] GameObject[] ToHide;
     // Start is called before the first frame update
     [SerializeField] ItemSlot Result;
+    [SerializeField] CanvasGroup[] RaycastToActivate;
 
     public void Onclick() {
         foreach (var item in ToShow)
@@ -15,6 +16,9 @@ public class Delete : MonoBehaviour
         foreach (var item in ToHide)
             item.SetActive(false);
         Result.Item = null;
+        foreach (var item in RaycastToActivate) {
+            item.blocksRaycasts = true;
+        }
         return;
         
     }
