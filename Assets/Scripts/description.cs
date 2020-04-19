@@ -19,7 +19,15 @@ public class description : MonoBehaviour
         return;
     }
 
-    public void exitD(Item item)
+    public void enterDG(ItemSlot item)
+    {
+        gameObject.SetActive(true);
+        title.text = item.Item.objectName;
+        infos.text = item.Item.description;
+        return;
+    }
+
+    public void exitD(Item item = null)
     {
         gameObject.SetActive(false);
         return;
