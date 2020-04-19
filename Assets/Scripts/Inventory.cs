@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
-public class inventory : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
     private recipes[] recipes;
     [SerializeField] List<Item> items;
