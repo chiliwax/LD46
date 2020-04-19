@@ -22,6 +22,11 @@ public class ItemSlot : MonoBehaviour
             }
         }
     }
+
+    public void setItemNull() {
+        _item = null;
+    }
+
     private void OnValidate()
     {
         if (image == null)
