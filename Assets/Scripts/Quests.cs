@@ -12,7 +12,7 @@ public class Quests : ScriptableObject
     public Item[] ToNotAnswer;
     [Range(1,5)]
     public int dificulty;
-    
+
     [HideInInspector]
     public bool end = false;
 }
