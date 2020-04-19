@@ -79,7 +79,8 @@ public class QuestManager : MonoBehaviour
         foreach (char letter in text)
         {
             mesh.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(0.025f);
+            //yield return null;
         }
     }
 }
