@@ -75,7 +75,7 @@ public class Inventory : MonoBehaviour
             list1.Add(item.objectName);
             list1.Sort();
         }
-
+        Debug.Log("NBreceip : "+recipes.Length.ToString());
         foreach (var recipe in recipes)
         {
             list2.RemoveRange(0, list2.Count);
@@ -87,15 +87,19 @@ public class Inventory : MonoBehaviour
 
             if (list1.Count == list2.Count)
             {
+                Debug.Log("Recette same size");
+                bool pass = true;
                 for (int i = 0; i < list1.Count; i++)
                 {
                     if (list1[i] != list2[i])
                     {
                         items.RemoveRange(0, items.Count);
                         RefreshUI();
-                        return;
+                        pass = false;
                     }
                 }
+                if (pass == false) {continue;}
+                Debug.Log("Receip exist");
                 craft.Item = recipe.result;
                 foreach (var item in ToHide)
                     item.SetActive(false);
