@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d22a67ae40f74a8b9987b0db14da8fb, type: 3}
+  m_Name: Alcool-jaune
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: 98f503bf89c25462eb6c9821174cbd1e, type: 2}
+  - {fileID: 11400000, guid: 3099e703c441040a5a96732633acd658, type: 2}
+  result: {fileID: 11400000, guid: 7a2a81f6b6750e84da26ef54661fc2a7, type: 2}

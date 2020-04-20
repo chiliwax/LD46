@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
   m_Name: Farine-bleu
   m_EditorClassIdentifier: 
-  objectName: Cachet bleu
+  objectName: Sleeping pill
   description: Un petit cachet bleu qui va t'aider a dormir.
-  Icon: {fileID: 21300000, guid: f4b52c2bf198dac4f8eae9675ebba115, type: 3}
+  Icon: {fileID: 21300000, guid: 0e60cb5a6c39baf43aa88a97b487f140, type: 3}

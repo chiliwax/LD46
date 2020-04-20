@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
   m_Name: Onguent-jaune
   m_EditorClassIdentifier: 
-  objectName: Creme de jour
+  objectName: Day Cream
   description: Une creme qui prend soin de votre peau
   Icon: {fileID: 21300000, guid: ef3352cb300873743829fe283e967235, type: 3}

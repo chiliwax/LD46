@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
   m_Name: Alcool-rouge
   m_EditorClassIdentifier: 
-  objectName: Potion rouge
+  objectName: Painkiller Serum
   description: Cette potion va vous apaisez
   Icon: {fileID: 21300000, guid: adfa315e4e46fed47aad587175b81df0, type: 3}

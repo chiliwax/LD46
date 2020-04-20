@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d22a67ae40f74a8b9987b0db14da8fb, type: 3}
   m_Name: Onguent-jaune
   m_EditorClassIdentifier: 
-  items: []
-  result: {fileID: 0}
+  items:
+  - {fileID: 11400000, guid: c138a5ad76f4c45c799269611277f0a6, type: 2}
+  - {fileID: 11400000, guid: 3099e703c441040a5a96732633acd658, type: 2}
+  result: {fileID: 11400000, guid: fe7896a88e9ae4ddb8a724d8351d40bc, type: 2}

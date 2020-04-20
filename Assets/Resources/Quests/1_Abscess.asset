@@ -10,19 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
-  m_Name: 1_MysteriousMissive
+  m_Name: 1_Abscess
   m_EditorClassIdentifier: 
-  QuestName: Mysterious Missive
-  description: '"Hello herbalist, I''ve heard that you are back in town. Lucky me
-    ! I need your services for a serious business. But first, I need you to take
-    that yellow plant and pour a few honey on it (on your left). Now, craft it together
-    to get a healing cream. Once I''ll have it, I would be able to discuss."
-
-    -
-    a total stranger'
+  QuestName: Abscess
+  description: 'A huge abscess has appear on my gum. I''m affraid I could die because
+    of this! I will need a yellow serum to heal this. '
   reward: 0
   ToAnswer:
-  - {fileID: 11400000, guid: fe7896a88e9ae4ddb8a724d8351d40bc, type: 2}
+  - {fileID: 11400000, guid: 7a2a81f6b6750e84da26ef54661fc2a7, type: 2}
   ToNotAnswer: []
   dificulty: 0
   AllowError: 1

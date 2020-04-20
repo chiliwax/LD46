@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
-  m_Name: 1_Retless Night
+  m_Name: 2_Retless Night
   m_EditorClassIdentifier: 
   QuestName: Restless Night
   description: '"Nelson, our prince, have terrible nightmares that prevent him from
@@ -24,7 +24,7 @@ MonoBehaviour:
   ToAnswer:
   - {fileID: 11400000, guid: 00cf90c84452546859f7a91e1a400535, type: 2}
   ToNotAnswer: []
-  dificulty: 0
+  dificulty: 1
   AllowError: 1
   end: 0
   IsWin: 0

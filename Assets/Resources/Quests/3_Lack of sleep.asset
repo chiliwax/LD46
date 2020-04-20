@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
+  m_Name: 3_Lack of sleep
+  m_EditorClassIdentifier: 
+  QuestName: Lack of sleep
+  description: I should have rest before my intensive training tomorrow morning.
+    A cream may help me to sleep well. I want to apply it on my muscles, you know,
+    with beeswax.
+  reward: 0
+  ToAnswer:
+  - {fileID: 11400000, guid: c227a587408e56f45b57201c9c8fc9f3, type: 2}
+  ToNotAnswer: []
+  dificulty: 2
+  AllowError: 1
+  end: 0
+  IsWin: 0
+  IsDead: 0
+  PlayerAnswer: []

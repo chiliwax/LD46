@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
   m_Name: Alcool-noir
   m_EditorClassIdentifier: 
-  objectName: Potion noir
+  objectName: "Holy Water 90\xB0"
   description: Cette potion vas extraire les mauvais esprits
   Icon: {fileID: 21300000, guid: ceb7de7ea9cdd7c44bbbd70086d0b1e0, type: 3}

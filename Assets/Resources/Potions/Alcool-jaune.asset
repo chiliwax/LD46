@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
   m_Name: Alcool-jaune
   m_EditorClassIdentifier: 
-  objectName: Blood thinning
+  objectName: Derma Serum
   description: 
   Icon: {fileID: 21300000, guid: 69f7f0b362ce2404083841e985af8e68, type: 3}
