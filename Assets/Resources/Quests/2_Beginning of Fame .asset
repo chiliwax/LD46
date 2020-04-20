@@ -21,13 +21,12 @@ MonoBehaviour:
     -Daniel, bargain
     merchant
 
-    
 
     It''s a big order but why not?
 
-    I have honey for the
-    balms and alcohol for the potions. Let''s add something for the pain and we''re
-    good. Why is my butt starting to tickle?'
+    I have honey for the balms
+    and alcohol for the potions. Let''s add something for the pain and we''re good.
+    Why is my butt starting to tickle?'
   reward: 0
   ToAnswer:
   - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}

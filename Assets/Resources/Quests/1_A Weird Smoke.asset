@@ -20,13 +20,11 @@ MonoBehaviour:
     -
     A worried sailor.
 
-    
 
-    I hope it''s not just for drinking and trying
-    to avoid a hangover, because obviously it wouldn''t work. The master has been
-    telling them to drink water for years. But after all, since they pay me, that
-    doesn''t concern me. Well, I have all the ingredients on my desk, I just have
-    to get started!'
+    I hope it''s not just for drinking and trying to avoid
+    a hangover, because obviously it wouldn''t work. The master has been telling
+    them to drink water for years. But after all, since they pay me, that doesn''t
+    concern me. Well, I have all the ingredients on my desk, I just have to get started!'
   reward: 0
   ToAnswer:
   - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
