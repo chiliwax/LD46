@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d22a67ae40f74a8b9987b0db14da8fb, type: 3}
-  m_Name: Onguent-jaune
+  m_Name: Bandage-violet
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: c138a5ad76f4c45c799269611277f0a6, type: 2}
-  - {fileID: 11400000, guid: 3099e703c441040a5a96732633acd658, type: 2}
-  result: {fileID: 11400000, guid: fe7896a88e9ae4ddb8a724d8351d40bc, type: 2}
+  - {fileID: 11400000, guid: a82c6e601341f48ec8116286002a460c, type: 2}
+  - {fileID: 11400000, guid: 1426746013d7c4896a778beb2c7c9661, type: 2}
+  - {fileID: 11400000, guid: e53bb72b23af046adb63e900793e7310, type: 2}
+  result: {fileID: 11400000, guid: fe38c2fbb890b834e990a8c3d7acf171, type: 2}
