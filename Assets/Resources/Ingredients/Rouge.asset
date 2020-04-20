@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Rouge
   m_EditorClassIdentifier: 
   objectName: "h\xE9lired"
-  description: antidouleur
+  description: Those little blue worms have the ability to make you forget the pain.
   Icon: {fileID: 21300000, guid: 2f1d011e3b4d3fd41844ee2fcd73a4ac, type: 3}

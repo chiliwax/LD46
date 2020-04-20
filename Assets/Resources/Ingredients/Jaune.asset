@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Jaune
   m_EditorClassIdentifier: 
   objectName: Melilaune
-  description: "soins cutan\xE9"
+  description: This yellow plant is used in skin care.
   Icon: {fileID: 21300000, guid: 08d37ee487dedbc448c7aa2f81f96660, type: 3}
