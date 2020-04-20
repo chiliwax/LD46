@@ -2178,12 +2178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0cefdb5271747cba2f9fe909aa3e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quests:
-  - {fileID: 11400000, guid: 2e04ab2a221fd4f4c96f6ba73f78d817, type: 2}
-  - {fileID: 11400000, guid: 56dc5186a20e0914eb43db166be186d5, type: 2}
-  - {fileID: 11400000, guid: fd3e233945b98dc4db8527d4680569ff, type: 2}
-  - {fileID: 11400000, guid: d5cc5a15a92e9d9459b025b58d2639cd, type: 2}
-  - {fileID: 11400000, guid: c95b7085bed22674b9e907077f2b5204, type: 2}
   title: {fileID: 1252861074}
   description: {fileID: 2052799993}
 --- !u!222 &848144755
