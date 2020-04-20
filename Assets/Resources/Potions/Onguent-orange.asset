@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
   m_Name: Onguent-orange
   m_EditorClassIdentifier: 
-  objectName: Creme miracle
-  description: Une infection? Une solution !
+  objectName: Miracle cream
+  description: An infection? a solution !
   Icon: {fileID: 21300000, guid: 83b4207ed1343f04b9c103861610461b, type: 3}
