@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
-  m_Name: Farine-bleu
+  m_Name: Alcool-orange
   m_EditorClassIdentifier: 
-  objectName: Sleeping pill
-  description: Un petit cachet bleu qui va t'aider a dormir.
-  Icon: {fileID: 21300000, guid: 0e60cb5a6c39baf43aa88a97b487f140, type: 3}
+  objectName: "Alcohol 90\xB0"
+  description: 
+  Icon: {fileID: 21300000, guid: 887781838ac832346af4ad2256b2f2c5, type: 3}
