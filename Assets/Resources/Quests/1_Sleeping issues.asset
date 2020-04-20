@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
-  m_Name: New Quests
+  m_Name: 1_Sleeping issues
   m_EditorClassIdentifier: 
-  QuestName: 
-  description: 
+  QuestName: Sleeping issues
+  description: I'm so tired, at this point I can't even be productive by day. I want
+    to sleep! Maybe a serum with alcohol as blue as starry sky could help me a little?
   reward: 0
-  ToAnswer: []
+  ToAnswer:
+  - {fileID: 11400000, guid: dc48f06f567193b47bf75b26ff03e64e, type: 2}
   ToNotAnswer: []
   dificulty: 0
   AllowError: 1

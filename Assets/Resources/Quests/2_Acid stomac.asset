@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
+  m_Name: 2_Acid stomac
+  m_EditorClassIdentifier: 
+  QuestName: Acid stomac
+  description: Urg I have big stomac ache since I drunk this bile based beverage.
+    It is your duty to give to my stomac a neutral Ph! My neighbour told me about
+    a violet pill, made with larva blurva and slugax redlime and some flour which
+    could save me from this situation!
+  reward: 0
+  ToAnswer:
+  - {fileID: 11400000, guid: 049d706fd449f804cb8375d0dfe40635, type: 2}
+  ToNotAnswer:
+  - {fileID: 11400000, guid: a74222b1ee7f72c46bb219a29c734b2c, type: 2}
+  dificulty: 1
+  AllowError: 1
+  end: 0
+  IsWin: 0
+  IsDead: 0
+  PlayerAnswer: []

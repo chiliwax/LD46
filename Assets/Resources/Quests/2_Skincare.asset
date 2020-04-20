@@ -10,19 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
-  m_Name: 2_Retless Night
+  m_Name: 2_Skincare
   m_EditorClassIdentifier: 
-  QuestName: Restless Night
-  description: '"Nelson, our prince, have terrible nightmares that prevent him from
-    sleeping. I shouldn''t ask you that, but could you provide me with a sleeping
-    pill? If you grind a few blue larvaes with flour you should get a pill that do
-    the trick. I would do it myself but I do not have access to your stuff"
-
-    -
-    A devoted servant'
+  QuestName: Skincare
+  description: A wart has appear on my cheek during the night. I'm so ugly now, and
+    I am supposed to meet my husband this evening. Please help me with this orange
+    serum made with slugax redlima and yellonace herbae that everyone is talking
+    about.
   reward: 0
   ToAnswer:
-  - {fileID: 11400000, guid: 00cf90c84452546859f7a91e1a400535, type: 2}
+  - {fileID: 11400000, guid: f2025fd61b6b9e246b8412dcf58753d3, type: 2}
   ToNotAnswer: []
   dificulty: 1
   AllowError: 1

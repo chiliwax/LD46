@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
-  m_Name: 1_A Weird Smoke
+  m_Name: 2_A Weird Smoke
   m_EditorClassIdentifier: 
   QuestName: A Weird Smoke
   description: '"Hello, weird smoke is coming from one of the houses in the harbor
@@ -29,7 +29,7 @@ MonoBehaviour:
   ToAnswer:
   - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
   ToNotAnswer: []
-  dificulty: 0
+  dificulty: 1
   AllowError: 1
   end: 0
   IsWin: 0

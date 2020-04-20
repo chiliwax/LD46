@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
   m_Name: 1_Moron
   m_EditorClassIdentifier: 
-  QuestName: 
-  description: 
+  QuestName: Moron!
+  description: A dragon trampled on me! My body is in horrible pain. I heard that
+    a serum with alcohol and blood like stuff could exterminate pain in few hours!
+    Outch!
   reward: 0
-  ToAnswer: []
+  ToAnswer:
+  - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
   ToNotAnswer: []
   dificulty: 0
   AllowError: 1
