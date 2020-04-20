@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d22a67ae40f74a8b9987b0db14da8fb, type: 3}
   m_Name: Alcool-rouge
   m_EditorClassIdentifier: 
-  items: []
-  result: {fileID: 0}
+  items:
+  - {fileID: 11400000, guid: 98f503bf89c25462eb6c9821174cbd1e, type: 2}
+  - {fileID: 11400000, guid: e53bb72b23af046adb63e900793e7310, type: 2}
+  result: {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}

@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d22a67ae40f74a8b9987b0db14da8fb, type: 3}
   m_Name: Farine-noir
   m_EditorClassIdentifier: 
-  items: []
-  result: {fileID: 0}
+  items:
+  - {fileID: 11400000, guid: ff720a0edf049485498fc41f75ea1e2f, type: 2}
+  - {fileID: 11400000, guid: 1426746013d7c4896a778beb2c7c9661, type: 2}
+  - {fileID: 11400000, guid: 3099e703c441040a5a96732633acd658, type: 2}
+  - {fileID: 11400000, guid: e53bb72b23af046adb63e900793e7310, type: 2}
+  result: {fileID: 11400000, guid: 1a96440f12d7b43a4be04492cb83f21d, type: 2}
