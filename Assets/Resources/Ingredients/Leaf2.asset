@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
   m_Name: Leaf2
   m_EditorClassIdentifier: 
-  objectName: Ingredient 2
-  description: Description 2
+  objectName: "h\xE9lired"
+  description: antidouleur
   Icon: {fileID: 21300000, guid: b587de9ea3b514daab556032966e7973, type: 3}
