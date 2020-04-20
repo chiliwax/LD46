@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Cachet Rouge
   description: Un petit cachet de couleur rouge qui aide a supprimer la douleur.
-  Icon: {fileID: 21300000, guid: d956d5b890e47490280ecc46aabd3e23, type: 3}
+  Icon: {fileID: 21300000, guid: f4b52c2bf198dac4f8eae9675ebba115, type: 3}

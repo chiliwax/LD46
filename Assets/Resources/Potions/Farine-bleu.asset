@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Cachet bleu
   description: Un petit cachet bleu qui va t'aider a dormir.
-  Icon: {fileID: 21300000, guid: 115f94b770dc6416cbb3299e7ed83f38, type: 3}
+  Icon: {fileID: 21300000, guid: f4b52c2bf198dac4f8eae9675ebba115, type: 3}

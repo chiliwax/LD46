@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Creme de jour
   description: Une creme qui prend soin de votre peau
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: ef3352cb300873743829fe283e967235, type: 3}

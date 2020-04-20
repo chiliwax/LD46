@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c18e305c1a24c6bb7ff49087f9b9d7, type: 3}
-  m_Name: P_DayCream
+  m_Script: {fileID: 11500000, guid: 7d22a67ae40f74a8b9987b0db14da8fb, type: 3}
+  m_Name: Alcool-noir
   m_EditorClassIdentifier: 
-  objectName: 
-  description: 
-  Icon: {fileID: 0}
+  items: []
+  result: {fileID: 0}

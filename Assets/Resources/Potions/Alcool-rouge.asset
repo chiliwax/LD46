@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Potion rouge
   description: Cette potion va vous apaisez
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: adfa315e4e46fed47aad587175b81df0, type: 3}

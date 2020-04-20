@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
-  m_Name: New Quests
+  m_Name: MysteriousMissive
   m_EditorClassIdentifier: 
   QuestName: 
   description: 
