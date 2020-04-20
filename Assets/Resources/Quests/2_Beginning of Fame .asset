@@ -12,12 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
   m_Name: '2_Beginning of Fame '
   m_EditorClassIdentifier: 
-  QuestName: 
-  description: 
+  QuestName: Beginning of Fame ?
+  description: '"I heard about you at the castle, it seems that your remedies are
+    miraculous ! I have a resale store in town, would you like to send me 4 potions
+    and 4 soothing balms? I promise to practice affordable prices for the poors.
+    If it works, we will discuss about a long-term arrangement!"
+
+    -Daniel, bargain
+    merchant
+
+    
+
+    It''s a big order but why not?
+
+    I have honey for the
+    balms and alcohol for the potions. Let''s add something for the pain and we''re
+    good. Why is my butt starting to tickle?'
   reward: 0
-  ToAnswer: []
+  ToAnswer:
+  - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
+  - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
+  - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
+  - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
+  - {fileID: 11400000, guid: 3ed2fb7c934d8ec4583369e0e04372cf, type: 2}
+  - {fileID: 11400000, guid: 3ed2fb7c934d8ec4583369e0e04372cf, type: 2}
+  - {fileID: 11400000, guid: 3ed2fb7c934d8ec4583369e0e04372cf, type: 2}
+  - {fileID: 11400000, guid: 3ed2fb7c934d8ec4583369e0e04372cf, type: 2}
   ToNotAnswer: []
-  dificulty: 0
+  dificulty: 1
   AllowError: 1
   end: 0
   IsWin: 0

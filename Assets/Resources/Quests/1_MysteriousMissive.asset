@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: 1_MysteriousMissive
   m_EditorClassIdentifier: 
   QuestName: 
-  description: 
+  description: '"Hello herbalist, I''ve heard that you are back in town. Lucky me
+    ! I need your services for a serious business. But first, I need you to take
+    that yellow plant and pour a few honey on it (on your left). Now, craft it together
+    to get a healing cream. Once I''ll have it, I would be able to discuss."
+
+    -
+    a total stranger'
   reward: 0
-  ToAnswer: []
+  ToAnswer:
+  - {fileID: 11400000, guid: fe7896a88e9ae4ddb8a724d8351d40bc, type: 2}
   ToNotAnswer: []
   dificulty: 0
   AllowError: 1
