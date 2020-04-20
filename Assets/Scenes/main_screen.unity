@@ -1592,6 +1592,7 @@ MonoBehaviour:
   Result: {fileID: 49176445}
   RaycastToActivate:
   - {fileID: 539984633}
+  AddToBoxButton: {fileID: 0}
 --- !u!20 &615474379 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4773311673793863562, guid: 005549124194b4250b5099be2d73eba8,
@@ -2322,6 +2323,7 @@ MonoBehaviour:
   Result: {fileID: 49176445}
   RaycastToActivate:
   - {fileID: 539984633}
+  AddToBoxButton: {fileID: 1048418911}
 --- !u!1 &991636460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2487,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.92156863, g: 0.92156863, b: 0.92156863, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -4848,7 +4850,6 @@ MonoBehaviour:
   ToHide:
   - {fileID: 192700325}
   ToShow:
-  - {fileID: 1048418911}
   - {fileID: 582707769}
   RaycastToDesactivate:
   - {fileID: 539984633}
