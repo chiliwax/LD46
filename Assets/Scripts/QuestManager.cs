@@ -39,16 +39,29 @@ public class QuestManager : MonoBehaviour
     public void NewQuest()
     {
         List<Quests> available_quests = new List<Quests> { };
-        foreach (var item in quests)
+
+        while (available_quests.Count == 0)
         {
-            //All conditions
-            if (item.end == false && item.dificulty <= timemanager.getWichDay())
+            foreach (var item in quests)
             {
-                Debug.Log("add");
-                available_quests.Add(item);
+                //All conditions
+                if (item.end == false && item.dificulty <= timemanager.getWichDay())
+                {
+                    Debug.Log("add");
+                    available_quests.Add(item);
+                }
+            }
+            Debug.Log("available quests " + available_quests.Count);
+
+            if (available_quests.Count == 0)
+            {
+                timemanager.IncraseDay();
+            }
+
+            if (timemanager.getWichDay() > 100) {
+                EndGame(0,0,0);
             }
         }
-        Debug.Log("available quests " + available_quests.Count);
 
         int deaths = 0;
         int win = 0;
@@ -58,21 +71,6 @@ public class QuestManager : MonoBehaviour
         {
             if (item.IsDead) { deaths += 1; }
             if (item.IsWin) { win += 1; } else { loose += 1; }
-        }
-        if (available_quests.Count == 0)
-        {
-            foreach (var item in quests)
-            {
-                if (item.end == false)
-                {
-                    timemanager.IncraseDay();
-                }
-                else
-                {
-                    EndGame(deaths, win, loose);
-                }
-            }
-            return;
         }
         if (deaths >= 5)
         {
