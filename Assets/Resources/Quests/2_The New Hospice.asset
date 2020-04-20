@@ -18,11 +18,10 @@ MonoBehaviour:
     Would it be possible to order two sleeping bandages and a blood thinning potion
     ? Please !"
 
-    
 
-    I must have some bandages lying on the right side of
-    the stove and I have Yellone herbs for their potion. In my opinion it is mostly
-    morphine and gags that they would need. But it''s not my business!'
+    I must have some bandages lying on the right side of the stove
+    and I have Yellone herbs for their potion. In my opinion it is mostly morphine
+    and gags that they would need. But it''s not my business!'
   reward: 0
   ToAnswer:
   - {fileID: 11400000, guid: 04fdba81936224238b65577151c484c0, type: 2}
