@@ -5,11 +5,18 @@ using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
+    public EndGame endGame_class;
+    public GameObject sendbutton;
+    public GameObject EndMissionScreen;
+    public GameObject EndGameScreen;
+    public TimeManager timemanager;
     private List<Quests> FinishQuests = new List<Quests> { };
-    private Quests[] quests;
+    [HideInInspector]
+    public Quests[] quests;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
-    private Quests activeQuest;
+    [HideInInspector]
+    public Quests activeQuest;
 
     void Start()
     {
@@ -35,22 +42,48 @@ public class QuestManager : MonoBehaviour
         foreach (var item in quests)
         {
             //All conditions
-            if (item.end == false)
+            if (item.end == false && item.dificulty <= timemanager.getWichDay())
             {
                 Debug.Log("add");
                 available_quests.Add(item);
             }
         }
         Debug.Log("available quests " + available_quests.Count);
+
+        int deaths = 0;
+        int win = 0;
+        int loose = 0;
+
+        foreach (var item in quests)
+        {
+            if (item.IsDead) { deaths += 1; }
+            if (item.IsWin) { win += 1; } else { loose += 1; }
+        }
         if (available_quests.Count == 0)
         {
-            EndGame();
+            foreach (var item in quests)
+            {
+                if (item.end == false)
+                {
+                    timemanager.IncraseDay();
+                }
+                else
+                {
+                    EndGame(deaths, win, loose);
+                }
+            }
+            return;
+        }
+        if (deaths >= 5)
+        {
+            EndGame(deaths, win, loose);
             return;
         }
         activeQuest = available_quests[Random.Range(0, available_quests.Count)];
 
         StopAllCoroutines();
         title.text = activeQuest.QuestName;
+        sendbutton.SetActive(false);
         StartCoroutine(TypeSentence(activeQuest.QuestName, title));
         StartCoroutine(TypeSentence(activeQuest.description, description));
         // title.text = activeQuest.QuestName;
@@ -132,7 +165,9 @@ public class QuestManager : MonoBehaviour
                 item.end = true;
             }
         }
-        NewQuest();
+        EndMissionScreen.SetActive(true);
+        EndMissionScreen.GetComponent<EndMission>().UpdateRecap();
+        // NewQuest();
     }
 
     public void AddItemInQuest(ItemSlot item)
@@ -140,9 +175,26 @@ public class QuestManager : MonoBehaviour
         activeQuest.PlayerAnswer.Add(item.Item);
     }
 
-    void EndGame()
+    void EndGame(int deaths, int win, int loose)
     {
         Debug.Log("GameFinish !");
+        EndGameScreen.SetActive(true);
+
+        if (deaths >= 5)
+        {
+            Debug.Log("To Many deaths");
+
+        }
+        else
+        {
+            Debug.Log("WinWin");
+        }
+        endGame_class.UpdateRecap();
+    }
+
+    Quests getActiveQuest()
+    {
+        return activeQuest;
     }
 
     IEnumerator TypeSentence(string text, TextMeshProUGUI mesh)
@@ -150,9 +202,11 @@ public class QuestManager : MonoBehaviour
         mesh.text = "";
         foreach (char letter in text)
         {
+            sendbutton.SetActive(false);
             mesh.text += letter;
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(0.0005f);
             //yield return null;
         }
+        sendbutton.SetActive(true);
     }
 }

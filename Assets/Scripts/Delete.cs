@@ -25,6 +25,7 @@ public class Delete : MonoBehaviour
     }
 
     public void displayAddToBox() {
-        AddToBoxButton.SetActive(true);
+        if (Result.Item != null)
+            AddToBoxButton.SetActive(true);
     }
 }
