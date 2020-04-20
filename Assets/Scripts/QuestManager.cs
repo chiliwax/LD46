@@ -60,6 +60,7 @@ public class QuestManager : MonoBehaviour
 
             if (timemanager.getWichDay() > 100) {
                 EndGame(0,0,0);
+                return;
             }
         }
 
