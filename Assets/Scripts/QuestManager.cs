@@ -6,13 +6,14 @@ using TMPro;
 public class QuestManager : MonoBehaviour
 {
     private List<Quests> FinishQuests = new List<Quests> { };
-    public Quests[] quests;
+    private Quests[] quests;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
     private Quests activeQuest;
 
     void Start()
     {
+        quests = Resources.LoadAll<Quests>("Quests");
         ResetQuests();
         NewQuest();
     }
@@ -101,7 +102,8 @@ public class QuestManager : MonoBehaviour
                 {
                     i++;
                     n++;
-                } else n++;
+                }
+                else n++;
             }
             activeQuest.IsWin = true;
             activeQuest.IsDead = false;
@@ -112,18 +114,6 @@ public class QuestManager : MonoBehaviour
             activeQuest.IsDead = false;
             return;
         }
-        // if (list1.Count == list2.Count) {
-        //     for (int i = 0; i < list1.Count; i++)
-        //         {
-        //             if (list1[i] != list2[i]) {
-        //                 activeQuest.IsWin = false;
-        //                 activeQuest.IsDead = false;
-        //                 return;
-        //             }
-        //         }
-        //     activeQuest.IsWin = true;
-        //     activeQuest.IsDead = false;
-        // }
     }
 
     public void EndQuest()
