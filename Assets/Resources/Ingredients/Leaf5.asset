@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Alcool
   description: Breuvage par voie oral
-  Icon: {fileID: 21300000, guid: da0de2586c0540740ae8ef2f5ca5bf26, type: 3}
+  Icon: {fileID: 21300000, guid: 0f558d1c246dbad47b88c0ee1bbf51b3, type: 3}

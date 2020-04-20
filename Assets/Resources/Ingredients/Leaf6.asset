@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Bandage
   description: Application sur les plaies
-  Icon: {fileID: 21300000, guid: e15b6fd6bf933e2488526f0936bbf631, type: 3}
+  Icon: {fileID: 21300000, guid: e7680e01736f532489ef9dafd094aff0, type: 3}
