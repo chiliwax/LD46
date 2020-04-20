@@ -12,7 +12,7 @@ public class Quests : ScriptableObject
     public int reward;
     public Item[] ToAnswer;
     public Item[] ToNotAnswer;
-    [Range(1,5)]
+    [Range(0,30)]
     public int dificulty;
     public bool AllowError = true;
 
