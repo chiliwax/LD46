@@ -9,6 +9,7 @@ public class Delete : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] ItemSlot Result;
     [SerializeField] CanvasGroup[] RaycastToActivate;
+    [SerializeField] GameObject AddToBoxButton;
 
     public void Onclick() {
         foreach (var item in ToShow)
@@ -21,5 +22,9 @@ public class Delete : MonoBehaviour
         }
         return;
         
+    }
+
+    public void displayAddToBox() {
+        AddToBoxButton.SetActive(true);
     }
 }
