@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    public GameObject nightPanel = null;
-    public GameObject[] ToHideNight;
     private int DayTime = 0;
 
     [SerializeField]
@@ -20,11 +18,6 @@ public class TimeManager : MonoBehaviour
         {
             WichDay += 1;
             DayTime = 0;
-            if (nightPanel)
-                nightPanel.SetActive(true);
-            foreach (var item in ToHideNight) {
-            //   item.SetActive(false);
-            }
         }
         else
         {
@@ -35,14 +28,6 @@ public class TimeManager : MonoBehaviour
     public void IncraseDay() {
         WichDay += 1;
         DayTime = 0;
-    }
-
-    public void ResetDay()
-    {
-        foreach (var item in ToHideNight)
-            item.SetActive(true);
-        if (nightPanel)
-            nightPanel.SetActive(false);
     }
 
     public int getWichDay()
