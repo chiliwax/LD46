@@ -85,8 +85,6 @@ public class QuestManager : MonoBehaviour
         sendbutton.SetActive(false);
         StartCoroutine(TypeSentence(activeQuest.QuestName, title));
         StartCoroutine(TypeSentence(activeQuest.description, description));
-        // title.text = activeQuest.QuestName;
-        // description.text = activeQuest.description;
         return;
     }
 
@@ -204,7 +202,6 @@ public class QuestManager : MonoBehaviour
             sendbutton.SetActive(false);
             mesh.text += letter;
             yield return new WaitForSeconds(0.0005f);
-            //yield return null;
         }
         sendbutton.SetActive(true);
     }
