@@ -7,9 +7,13 @@ public class Quests : ScriptableObject
 {
     [Header("Quest Info")]
     public string QuestName;
+    public string ENQuestName;
     [TextArea(5, 20)]
     [Multiline]
     public string description;
+    [TextArea(5, 20)]
+    [Multiline]
+    public string ENDescription;
     public bool IsLock;
     [Header("Requirement")]
     public int reputationMini;
@@ -28,9 +32,15 @@ public class Quests : ScriptableObject
     [TextArea(5, 20)]
     [Multiline]
     public string WinDescription;
-    public int WinReputation;
-    public int WinExperience;
-    public int WinOr;
+    [TextArea(5, 20)]
+    [Multiline]
+    public string ENWinDescription;
+    [Range(-100,100)]
+    public int WinReputation = 0;
+    [Range(0,100)]
+    public int WinExperience = 0;
+    [Range(-100,100)]
+    public int WinOr = 0;
     public Quests[] WinQuestUnlock;
     public Quests[] WinQuestlock;
     public Quests WinPlayAfter;
@@ -40,9 +50,15 @@ public class Quests : ScriptableObject
     [TextArea(5, 20)]
     [Multiline]
     public string NHDescription;
-    public int NHReputation;
-    public int NHExperience;
-    public int NHOr;
+    [TextArea(5, 20)]
+    [Multiline]
+    public string ENNHDescription;
+    [Range(-100,100)]
+    public int NHReputation = 0;
+    [Range(0,100)]
+    public int NHExperience = 0;
+    [Range(-100,100)]
+    public int NHOr = 0;
     public Quests[] NHQuestUnlock;
     public Quests[] NHQuestlock;
     public Quests NHPlayAfter;
@@ -52,9 +68,15 @@ public class Quests : ScriptableObject
     [TextArea(5, 20)]
     [Multiline]
     public string LooseDescription;
-    public int LooseReputation;
-    public int LooseExperience;
-    public int LooseOr;
+    [TextArea(5, 20)]
+    [Multiline]
+    public string ENLooseDescription;
+    [Range(-100,100)]
+    public int LooseReputation = 0;
+    [Range(0,100)]
+    public int LooseExperience = 0;
+    [Range(-100,100)]
+    public int LooseOr = 0;
     public Quests[] LooseQuestUnlock;
     public Quests[] LooseQuestlock;
     public Quests LoosePlayAfter;
