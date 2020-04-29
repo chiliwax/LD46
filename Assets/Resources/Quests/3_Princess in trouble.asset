@@ -16,11 +16,15 @@ MonoBehaviour:
   description: King's Daughter had a walk near to a crop circle which cursed her.
     The priest could'nt save her, you are our last hope. He talked about a black
     serum composed from larva blurva, slugax redlima and yellonace herbae. Hurry
-    up, or she will die.*
-  reward: 0
+    up, or she will die.
+  reputationMini: 0
+  experienceMini: 0
   ToAnswer:
   - {fileID: 11400000, guid: ca6ac8673987d46af9d2521cea3d3aa2, type: 2}
   ToNotAnswer: []
+  WinReputation: 0
+  NPReputation: 0
+  LooseReputation: 0
   dificulty: 2
   AllowError: 0
   end: 0
