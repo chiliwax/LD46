@@ -245,3 +245,6 @@ StyleCopReport.xml
 
 .fake
 .ionide
+
+#graph source image
+*.kra
