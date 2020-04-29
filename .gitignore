@@ -248,3 +248,4 @@ StyleCopReport.xml
 
 #graph source image
 *.kra
+*.kra~
