@@ -6,10 +6,6 @@ public class FxChain : MonoBehaviour
 {
     private Transform child;
 
-    private void Awake()
-    {
-        child = transform.GetChild(0);
-    }
    
     public void PlayFX()
     {
@@ -23,12 +19,16 @@ public class FxChain : MonoBehaviour
     }
     private Transform FX(Transform launcher)
     {
-        child = launcher.GetChild(0);
-        if (child != null)
+        if (launcher.childCount > 0)
         {
-            if (child.GetComponent<ParticleSystem>())
-                child.GetComponent<ParticleSystem>().Play();
+            child = launcher.GetChild(0);
+            if (child != null)
+            {
+                if (child.GetComponent<ParticleSystem>())
+                    child.GetComponent<ParticleSystem>().Play();
+            }
         }
+        else child = null;
         return child;
     }
 
