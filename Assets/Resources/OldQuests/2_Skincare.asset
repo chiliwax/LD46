@@ -13,16 +13,47 @@ MonoBehaviour:
   m_Name: 2_Skincare
   m_EditorClassIdentifier: 
   QuestName: Skincare
+  ENQuestName: 
   description: A wart has appear on my cheek during the night. I'm so ugly now, and
     I am supposed to meet my husband this evening. Please help me with this orange
     serum made with slugax redlima and yellonace herbae that everyone is talking
     about.
-  reward: 0
+  ENDescription: 
+  IsLock: 0
+  reputationMini: 0
+  experienceMini: 0
+  dificulty: 1
+  AllowError: 1
   ToAnswer:
   - {fileID: 11400000, guid: f2025fd61b6b9e246b8412dcf58753d3, type: 2}
   ToNotAnswer: []
-  dificulty: 1
-  AllowError: 1
+  WinDescription: 
+  ENWinDescription: 
+  WinReputation: 0
+  WinExperience: 0
+  WinOr: 0
+  WinQuestUnlock: []
+  WinQuestlock: []
+  WinPlayAfter: {fileID: 0}
+  WinGameOver: {fileID: 0}
+  NHDescription: 
+  ENNHDescription: 
+  NHReputation: 0
+  NHExperience: 0
+  NHOr: 0
+  NHQuestUnlock: []
+  NHQuestlock: []
+  NHPlayAfter: {fileID: 0}
+  NHGameOver: {fileID: 0}
+  LooseDescription: 
+  ENLooseDescription: 
+  LooseReputation: 0
+  LooseExperience: 0
+  LooseOr: 0
+  LooseQuestUnlock: []
+  LooseQuestlock: []
+  LoosePlayAfter: {fileID: 0}
+  LooseGameOver: {fileID: 0}
   end: 0
   IsWin: 0
   IsDead: 0

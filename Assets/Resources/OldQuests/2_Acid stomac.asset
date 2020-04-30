@@ -13,17 +13,48 @@ MonoBehaviour:
   m_Name: 2_Acid stomac
   m_EditorClassIdentifier: 
   QuestName: Acid stomac
+  ENQuestName: 
   description: Urg I have big stomac ache since I drunk this bile based beverage.
     It is your duty to give to my stomac a neutral Ph! My neighbour told me about
     a violet pill, made with larva blurva and slugax redlime and some flour which
     could save me from this situation!
-  reward: 0
+  ENDescription: 
+  IsLock: 0
+  reputationMini: 0
+  experienceMini: 0
+  dificulty: 1
+  AllowError: 1
   ToAnswer:
   - {fileID: 11400000, guid: 049d706fd449f804cb8375d0dfe40635, type: 2}
   ToNotAnswer:
   - {fileID: 11400000, guid: a74222b1ee7f72c46bb219a29c734b2c, type: 2}
-  dificulty: 1
-  AllowError: 1
+  WinDescription: 
+  ENWinDescription: 
+  WinReputation: 0
+  WinExperience: 0
+  WinOr: 0
+  WinQuestUnlock: []
+  WinQuestlock: []
+  WinPlayAfter: {fileID: 0}
+  WinGameOver: {fileID: 0}
+  NHDescription: 
+  ENNHDescription: 
+  NHReputation: 0
+  NHExperience: 0
+  NHOr: 0
+  NHQuestUnlock: []
+  NHQuestlock: []
+  NHPlayAfter: {fileID: 0}
+  NHGameOver: {fileID: 0}
+  LooseDescription: 
+  ENLooseDescription: 
+  LooseReputation: 0
+  LooseExperience: 0
+  LooseOr: 0
+  LooseQuestUnlock: []
+  LooseQuestlock: []
+  LoosePlayAfter: {fileID: 0}
+  LooseGameOver: {fileID: 0}
   end: 0
   IsWin: 0
   IsDead: 0

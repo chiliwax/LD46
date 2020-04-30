@@ -13,20 +13,47 @@ MonoBehaviour:
   m_Name: 3_Princess in trouble
   m_EditorClassIdentifier: 
   QuestName: Princess in trouble
+  ENQuestName: 
   description: King's Daughter had a walk near to a crop circle which cursed her.
     The priest could'nt save her, you are our last hope. He talked about a black
     serum composed from larva blurva, slugax redlima and yellonace herbae. Hurry
     up, or she will die.
+  ENDescription: 
+  IsLock: 0
   reputationMini: 0
   experienceMini: 0
+  dificulty: 2
+  AllowError: 0
   ToAnswer:
   - {fileID: 11400000, guid: ca6ac8673987d46af9d2521cea3d3aa2, type: 2}
   ToNotAnswer: []
+  WinDescription: 
+  ENWinDescription: 
   WinReputation: 0
-  NPReputation: 0
+  WinExperience: 0
+  WinOr: 0
+  WinQuestUnlock: []
+  WinQuestlock: []
+  WinPlayAfter: {fileID: 0}
+  WinGameOver: {fileID: 0}
+  NHDescription: 
+  ENNHDescription: 
+  NHReputation: 0
+  NHExperience: 0
+  NHOr: 0
+  NHQuestUnlock: []
+  NHQuestlock: []
+  NHPlayAfter: {fileID: 0}
+  NHGameOver: {fileID: 0}
+  LooseDescription: 
+  ENLooseDescription: 
   LooseReputation: 0
-  dificulty: 2
-  AllowError: 0
+  LooseExperience: 0
+  LooseOr: 0
+  LooseQuestUnlock: []
+  LooseQuestlock: []
+  LoosePlayAfter: {fileID: 0}
+  LooseGameOver: {fileID: 0}
   end: 0
   IsWin: 0
   IsDead: 0

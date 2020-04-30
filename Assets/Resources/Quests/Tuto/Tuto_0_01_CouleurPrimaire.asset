@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
+  m_Name: Tuto_0_01_CouleurPrimaire
+  m_EditorClassIdentifier: 
+  QuestName: Couleur primaire
+  ENQuestName: Primary color
+  description: 3 potion d'eau, une de chaque couleur
+  ENDescription: 3 potion d'eau, une de chaque couleur
+  IsLock: 1
+  reputationMini: 0
+  experienceMini: 0
+  dificulty: 0
+  AllowError: 1
+  ToAnswer:
+  - {fileID: 11400000, guid: dc48f06f567193b47bf75b26ff03e64e, type: 2}
+  - {fileID: 11400000, guid: 7a2a81f6b6750e84da26ef54661fc2a7, type: 2}
+  - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
+  ToNotAnswer: []
+  WinDescription: gg
+  ENWinDescription: 
+  WinReputation: 0
+  WinExperience: 0
+  WinOr: 0
+  WinQuestUnlock: []
+  WinQuestlock: []
+  WinPlayAfter: {fileID: 0}
+  WinGameOver: {fileID: 11400000, guid: c49527add395dbe42ad2fc24f192971b, type: 2}
+  NHDescription: 
+  ENNHDescription: 
+  NHReputation: 0
+  NHExperience: 0
+  NHOr: 0
+  NHQuestUnlock: []
+  NHQuestlock: []
+  NHPlayAfter: {fileID: 0}
+  NHGameOver: {fileID: 0}
+  LooseDescription: '=/
+
+
+    juste non, deso pa deso'
+  ENLooseDescription: 
+  LooseReputation: 0
+  LooseExperience: 0
+  LooseOr: 0
+  LooseQuestUnlock: []
+  LooseQuestlock: []
+  LoosePlayAfter: {fileID: 0}
+  LooseGameOver: {fileID: 11400000, guid: cf154d36c957e4e4abd074b4631720a8, type: 2}
+  end: 0
+  IsWin: 0
+  IsDead: 0
+  PlayerAnswer: []

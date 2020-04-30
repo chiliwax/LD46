@@ -13,14 +13,45 @@ MonoBehaviour:
   m_Name: 1_Sleeping issues
   m_EditorClassIdentifier: 
   QuestName: Sleeping issues
+  ENQuestName: 
   description: I'm so tired, at this point I can't even be productive by day. I want
     to sleep! Maybe a serum with alcohol as blue as starry sky could help me a little?
-  reward: 0
+  ENDescription: 
+  IsLock: 0
+  reputationMini: 0
+  experienceMini: 0
+  dificulty: 0
+  AllowError: 1
   ToAnswer:
   - {fileID: 11400000, guid: dc48f06f567193b47bf75b26ff03e64e, type: 2}
   ToNotAnswer: []
-  dificulty: 0
-  AllowError: 1
+  WinDescription: 
+  ENWinDescription: 
+  WinReputation: 0
+  WinExperience: 0
+  WinOr: 0
+  WinQuestUnlock: []
+  WinQuestlock: []
+  WinPlayAfter: {fileID: 0}
+  WinGameOver: {fileID: 0}
+  NHDescription: 
+  ENNHDescription: 
+  NHReputation: 0
+  NHExperience: 0
+  NHOr: 0
+  NHQuestUnlock: []
+  NHQuestlock: []
+  NHPlayAfter: {fileID: 0}
+  NHGameOver: {fileID: 0}
+  LooseDescription: 
+  ENLooseDescription: 
+  LooseReputation: 0
+  LooseExperience: 0
+  LooseOr: 0
+  LooseQuestUnlock: []
+  LooseQuestlock: []
+  LoosePlayAfter: {fileID: 0}
+  LooseGameOver: {fileID: 0}
   end: 0
   IsWin: 0
   IsDead: 0

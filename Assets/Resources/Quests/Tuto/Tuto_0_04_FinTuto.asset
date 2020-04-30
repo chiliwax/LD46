@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
+  m_Name: Tuto_0_04_FinTuto
+  m_EditorClassIdentifier: 
+  QuestName: 
+  ENQuestName: 
+  description: 
+  ENDescription: 
+  IsLock: 0
+  reputationMini: 0
+  experienceMini: 0
+  dificulty: 0
+  AllowError: 1
+  ToAnswer: []
+  ToNotAnswer: []
+  WinDescription: 
+  ENWinDescription: 
+  WinReputation: 0
+  WinExperience: 0
+  WinOr: 0
+  WinQuestUnlock: []
+  WinQuestlock: []
+  WinPlayAfter: {fileID: 0}
+  WinGameOver: {fileID: 0}
+  NHDescription: 
+  ENNHDescription: 
+  NHReputation: 0
+  NHExperience: 0
+  NHOr: 0
+  NHQuestUnlock: []
+  NHQuestlock: []
+  NHPlayAfter: {fileID: 0}
+  NHGameOver: {fileID: 0}
+  LooseDescription: 
+  ENLooseDescription: 
+  LooseReputation: 0
+  LooseExperience: 0
+  LooseOr: 0
+  LooseQuestUnlock: []
+  LooseQuestlock: []
+  LoosePlayAfter: {fileID: 0}
+  LooseGameOver: {fileID: 0}
+  end: 0
+  IsWin: 0
+  IsDead: 0
+  PlayerAnswer: []

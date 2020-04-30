@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 2_A Weird Smoke
   m_EditorClassIdentifier: 
   QuestName: A Weird Smoke
+  ENQuestName: 
   description: '"Hello, weird smoke is coming from one of the houses in the harbor
     area. Could you serve us a drink for headache? Mix alcohol with these little
     red creatures, they have anesthetic properties, that should be enough "
@@ -25,12 +26,42 @@ MonoBehaviour:
     a hangover, because obviously it wouldn''t work. The master has been telling
     them to drink water for years. But after all, since they pay me, that doesn''t
     concern me. Well, I have all the ingredients on my desk, I just have to get started!'
-  reward: 0
+  ENDescription: 
+  IsLock: 0
+  reputationMini: 0
+  experienceMini: 0
+  dificulty: 1
+  AllowError: 1
   ToAnswer:
   - {fileID: 11400000, guid: c2145caff18704962b2bffcb193be308, type: 2}
   ToNotAnswer: []
-  dificulty: 1
-  AllowError: 1
+  WinDescription: 
+  ENWinDescription: 
+  WinReputation: 0
+  WinExperience: 0
+  WinOr: 0
+  WinQuestUnlock: []
+  WinQuestlock: []
+  WinPlayAfter: {fileID: 0}
+  WinGameOver: {fileID: 0}
+  NHDescription: 
+  ENNHDescription: 
+  NHReputation: 0
+  NHExperience: 0
+  NHOr: 0
+  NHQuestUnlock: []
+  NHQuestlock: []
+  NHPlayAfter: {fileID: 0}
+  NHGameOver: {fileID: 0}
+  LooseDescription: 
+  ENLooseDescription: 
+  LooseReputation: 0
+  LooseExperience: 0
+  LooseOr: 0
+  LooseQuestUnlock: []
+  LooseQuestlock: []
+  LoosePlayAfter: {fileID: 0}
+  LooseGameOver: {fileID: 0}
   end: 0
   IsWin: 0
   IsDead: 0
