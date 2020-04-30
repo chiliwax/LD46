@@ -862,7 +862,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: fxLeaf01 - ColisEffect
+  m_Text: fxLeaf02 - AddToColieEffect
 --- !u!222 &970613052
 CanvasRenderer:
   m_ObjectHideFlags: 0
