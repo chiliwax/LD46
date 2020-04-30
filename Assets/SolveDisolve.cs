@@ -5,15 +5,25 @@ using UnityEngine.UI;
 
 public class SolveDisolve : MonoBehaviour
 {
+    public bool DisplayStart = true;
     public float speed = 0.01f;
-    [Range(0.01f,0.1f)]
+    [Range(0.01f, 0.1f)]
     public float definition = 0.05f;
     private Material mat;
+
+    private enum status { solve, disolve, destroy };
 
     void Start()
     {
         mat = gameObject.GetComponent<Image>().material;
-        mat.SetFloat("_Fade", 0);
+        if (DisplayStart)
+        {
+            mat.SetFloat("_Fade", 1);
+        }
+        else
+        {
+            mat.SetFloat("_Fade", 0);
+        }
     }
 
     public void solve()
@@ -21,7 +31,7 @@ public class SolveDisolve : MonoBehaviour
         if (mat.GetFloat("_Fade") == 0)
         {
             StopAllCoroutines();
-            StartCoroutine(Exec(true));
+            StartCoroutine(Exec(status.solve));
         }
     }
     public void disolve()
@@ -29,13 +39,22 @@ public class SolveDisolve : MonoBehaviour
         if (mat.GetFloat("_Fade") == 1)
         {
             StopAllCoroutines();
-            StartCoroutine(Exec(false));
+            StartCoroutine(Exec(status.disolve));
         }
     }
 
-    IEnumerator Exec(bool Craft)
+    public void destroy()
     {
-        if (Craft)
+        if (mat.GetFloat("_Fade") == 1)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Exec(status.destroy));
+        }
+    }
+
+    IEnumerator Exec(status _status)
+    {
+        if (_status == status.solve)
         {
             for (float i = 0; i < 1; i += definition)
             {
@@ -44,13 +63,17 @@ public class SolveDisolve : MonoBehaviour
             }
             mat.SetFloat("_Fade", 1);
         }
+        else if (_status == status.disolve)
+        {
+            for (float i = 1; i > 0; i -= definition)
+            {
+                mat.SetFloat("_Fade", i);
+                yield return new WaitForSeconds(speed);
+            }
+            mat.SetFloat("_Fade", 0);
+        }
         else
         {
-            // for (float i = 1; i > 0; i -= definition)
-            // {
-            //     mat.SetFloat("_Fade", i);
-            //     yield return new WaitForSeconds(speed);
-            // }
             mat.SetFloat("_Fade", 0);
         }
     }
