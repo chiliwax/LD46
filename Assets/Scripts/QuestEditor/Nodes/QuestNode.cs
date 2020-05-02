@@ -221,7 +221,7 @@ namespace SA.QuestEditor
                         #endregion
                         if (boxNothingArea)
                         {
-                            #region Nothing Panel /empty/
+                            #region Nothing Panel /empty/9
 
                             #endregion
                         }
@@ -234,7 +234,7 @@ namespace SA.QuestEditor
                     #endregion
                     if (boxLooseArea)
                     {
-                        #region Loose Panel /empty/
+                        #region Loose Panel /empty/9
                         #endregion
                     }
                 }
