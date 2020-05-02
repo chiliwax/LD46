@@ -4,19 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using System;
-
+using System.Linq;
 public class Inventory : MonoBehaviour
 {
     private recipes[] recipes;
-    [SerializeField][HideInInspector] List<Item> items;
+    [SerializeField] [HideInInspector] List<Item> items;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
     [Space]
     [SerializeField] Transform ItemResult;
-    [SerializeField] GameObject[] ToHide;
-    [SerializeField] GameObject[] ToShow;
-    [SerializeField] CanvasGroup[] RaycastToDesactivate;
     private ItemSlot craft;
+
 
     private void Start()
     {
@@ -66,57 +64,23 @@ public class Inventory : MonoBehaviour
     public void Craft()
     {
         craft = ItemResult.GetComponentInChildren<ItemSlot>();
-        if (!craft)
-        {
-            craft = ItemResult.GetComponent<ItemSlot>();
-        }
+        if (!craft) { craft = ItemResult.GetComponent<ItemSlot>(); }
         craft.Item = null;
-
-        List<String> list1 = new List<String> { };
-        List<String> list2 = new List<String> { };
         itemsParent.GetComponent<SolveDisolve>().disolve();
-        foreach (var item in items)
-        {
-            list1.Add(item.objectName);
-            list1.Sort();
-        }
+        List<Item> OrderCrafted = items.OrderBy(o=>o.objectName).ToList();
+
+        items.RemoveRange(0, items.Count);
         Debug.Log("NBreceip : " + recipes.Length.ToString());
         foreach (var recipe in recipes)
         {
-            list2.RemoveRange(0, list2.Count);
-            foreach (var item in recipe.items)
+            List<Item> OrderRecipe = recipe.items.OrderBy(o=>o.objectName).ToList();
+            if (OrderCrafted.SequenceEqual(OrderRecipe))
             {
-                list2.Add(item.objectName);
-                list2.Sort();
-            }
-
-            if (list1.Count == list2.Count)
-            {
-                Debug.Log("Recette same size");
-                bool pass = true;
-                for (int i = 0; i < list1.Count; i++)
-                {
-                    if (list1[i] != list2[i])
-                    {
-                        pass = false;
-                    }
-                }
-                if (pass == false) { continue; }
-                Debug.Log("Receip exist");
                 craft.Item = recipe.result;
-                foreach (var item in ToHide)
-                    item.SetActive(false);
-                foreach (var item in ToShow)
-                    item.SetActive(true);
-                foreach (var item in RaycastToDesactivate)
-                {
-                    item.blocksRaycasts = false;
-                }
                 craft.GetComponentInParent<SolveDisolve>().solve();
             }
         }
-        items.RemoveRange(0, items.Count);
-        return;
+        //UI will be refresh when we add items again. (allow desolve)
     }
 
     public bool IsFull()
