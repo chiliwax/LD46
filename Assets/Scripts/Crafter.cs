@@ -31,8 +31,7 @@ public class Crafter : MonoBehaviour
 
     public void AddItem(Item item)
     {
-        if (IsFull())
-            return;
+        if (IsFull()) { return; }
         items.Add(item);
         RefreshUI();
     }
