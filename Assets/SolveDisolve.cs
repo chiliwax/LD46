@@ -10,24 +10,35 @@ public class SolveDisolve : MonoBehaviour
     [Range(0.01f, 0.1f)]
     public float definition = 0.05f;
     private Material mat;
-
-    private enum status { solve, disolve, destroy };
+  //  private Image[] images;
+    private enum status { solve, disolve, destroy, appear };
 
     void Start()
     {
-        mat = gameObject.GetComponent<Image>().material;
+   //     images = gameObject.GetComponentsInChildren<Image>();
+        mat = gameObject.GetComponentInChildren<Image>().material;
+        if (!mat)
+        {
+   //         images = gameObject.GetComponents<Image>();
+            mat = gameObject.GetComponent<Image>().material;
+        }
         if (DisplayStart)
         {
+       //     foreach (var item in images) {item.enabled = true;};
             mat.SetFloat("_Fade", 1);
         }
         else
         {
+     //       foreach (var item in images) {item.enabled = false;};
             mat.SetFloat("_Fade", 0);
         }
     }
 
     public void solve()
     {
+       if ( !gameObject.GetComponentInChildren<Image>() && !gameObject.GetComponent<Image>()) {
+           return;
+       }
         if (mat.GetFloat("_Fade") == 0)
         {
             StopAllCoroutines();
@@ -36,6 +47,9 @@ public class SolveDisolve : MonoBehaviour
     }
     public void disolve()
     {
+        if ( !gameObject.GetComponentInChildren<Image>() && !gameObject.GetComponent<Image>()) {
+           return;
+       }
         if (mat.GetFloat("_Fade") == 1)
         {
             StopAllCoroutines();
@@ -45,11 +59,24 @@ public class SolveDisolve : MonoBehaviour
 
     public void destroy()
     {
-        if (mat.GetFloat("_Fade") == 1)
-        {
-            StopAllCoroutines();
-            StartCoroutine(Exec(status.destroy));
-        }
+        if ( !gameObject.GetComponentInChildren<Image>() && !gameObject.GetComponent<Image>()) {
+           return;
+       }
+        mat.SetFloat("_Fade", 0);
+     //   foreach (var item in images) {item.enabled = false;};
+    }
+
+    public void apear()
+    {
+        if ( !gameObject.GetComponentInChildren<Image>() && !gameObject.GetComponent<Image>()) {
+           return;
+       }
+        mat.SetFloat("_Fade", 1);
+    //    foreach (var item in images) {item.enabled = true;};
+    }
+
+    public bool isVisible() {
+        return (mat.GetFloat("_Fade") != 0);
     }
 
     IEnumerator Exec(status _status)
@@ -62,6 +89,7 @@ public class SolveDisolve : MonoBehaviour
                 yield return new WaitForSeconds(speed);
             }
             mat.SetFloat("_Fade", 1);
+  //          foreach (var item in images) {item.enabled = true;};
         }
         else if (_status == status.disolve)
         {
@@ -71,10 +99,7 @@ public class SolveDisolve : MonoBehaviour
                 yield return new WaitForSeconds(speed);
             }
             mat.SetFloat("_Fade", 0);
-        }
-        else
-        {
-            mat.SetFloat("_Fade", 0);
+   //         foreach (var item in images) {item.enabled = false;};
         }
     }
 
