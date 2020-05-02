@@ -19,57 +19,7 @@ namespace SA.QuestEditor
         #endregion
         Quests quest;
         string newQuestName= "";
-        #region Variables quest
-
-        #region InfoQuest
-        string QuestName = "FR Titre";
-        string ENQuestName = "EN Title";
-        string description = "VF description";
-        string ENDescription = "EN description";
-        float reputationMini = 0;
-        float experienceMini = 0;
-        float dificulty = 0;
-        bool AllowError = true;
-        Item[] ToAnswer;
-        Item[] ToNotAnswer;
-        #endregion
         
-        #region WIN AREA
-        string WinDescription;
-        string ENWinDescription;
-        int WinReputation = 0;
-        int WinExperience = 0;
-        int WinOr = 0;
-        Quests[] WinQuestUnlock;
-        Quests[] WinQuestlock;
-        Quests WinPlayAfter;
-        GameOver WinGameOver;
-        #endregion
-        
-        #region NOTHING AREA
-        string NHDescription;
-        string ENNHDescription;
-        int NHReputation = 0;
-        int NHExperience = 0;
-        int NHOr = 0;
-        Quests[] NHQuestUnlock;
-        Quests[] NHQuestlock;
-        Quests NHPlayAfter;
-        GameOver NHGameOver;
-        #endregion
-        
-        #region LOOSE AREA
-        string LooseDescription;
-        string ENLooseDescription;
-        int LooseReputation = 0;
-        int LooseExperience = 0;
-        int LooseOr = 0;
-        Quests[] LooseQuestUnlock;
-        Quests[] LooseQuestlock;
-        Quests LoosePlayAfter;
-        GameOver LooseGameOver;
-        #endregion
-        #endregion 
 
         public override void DrawWidow()
         {
@@ -96,7 +46,7 @@ namespace SA.QuestEditor
                     }
                     else
                     {
-                        GUILayout.Label("A new quest need a name !");
+                        Debug.LogError("A new quest need a name !");
                     }
                 }
                 GUILayout.Space(20f);
@@ -191,7 +141,7 @@ namespace SA.QuestEditor
                         GUILayout.Label("_____Win Panel_____");
                         #endregion
                     }
-                    if (AllowError)
+                    if (quest.AllowError)
                     {
                         #region Nothing Area button
                         if (boxNothingArea != true && GUILayout.Button("Open Nothing sttings"))
