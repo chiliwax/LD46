@@ -8,7 +8,7 @@ using System;
 public class Inventory : MonoBehaviour
 {
     private recipes[] recipes;
-    [SerializeField] List<Item> items;
+    [SerializeField][HideInInspector] List<Item> items;
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
     [Space]
@@ -66,7 +66,8 @@ public class Inventory : MonoBehaviour
     public void Craft()
     {
         craft = ItemResult.GetComponentInChildren<ItemSlot>();
-        if (!craft) {
+        if (!craft)
+        {
             craft = ItemResult.GetComponent<ItemSlot>();
         }
         craft.Item = null;
@@ -79,7 +80,7 @@ public class Inventory : MonoBehaviour
             list1.Add(item.objectName);
             list1.Sort();
         }
-        Debug.Log("NBreceip : "+recipes.Length.ToString());
+        Debug.Log("NBreceip : " + recipes.Length.ToString());
         foreach (var recipe in recipes)
         {
             list2.RemoveRange(0, list2.Count);
@@ -100,7 +101,7 @@ public class Inventory : MonoBehaviour
                         pass = false;
                     }
                 }
-                if (pass == false) {continue;}
+                if (pass == false) { continue; }
                 Debug.Log("Receip exist");
                 craft.Item = recipe.result;
                 foreach (var item in ToHide)
@@ -115,7 +116,6 @@ public class Inventory : MonoBehaviour
             }
         }
         items.RemoveRange(0, items.Count);
-        RefreshUI();
         return;
     }
 
