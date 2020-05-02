@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 
 public class CameraResolution : MonoBehaviour
 {
@@ -17,7 +16,6 @@ public class CameraResolution : MonoBehaviour
         float targetaspect = RatioX / RatioY;
         float windowaspect = (float)Screen.width / (float)Screen.height;
         float scaleheight = windowaspect / targetaspect;
-        //Camera camera = GetComponent<Camera>();
 
         if (scaleheight < 1.0f)
         {
