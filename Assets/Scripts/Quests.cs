@@ -40,8 +40,8 @@ public class Quests : ScriptableObject
     public int WinExperience = 0;
     [Range(-100,100)]
     public int WinOr = 0;
-    public Quests[] WinQuestUnlock;
-    public Quests[] WinQuestlock;
+    public List<Quests> WinQuestUnlock = new List<Quests>();
+    public List<Quests> WinQuestlock = new List<Quests>();
     public Quests WinPlayAfter;
     public GameOver WinGameOver;
     ///NOTHING AREA///
@@ -58,8 +58,8 @@ public class Quests : ScriptableObject
     public int NHExperience = 0;
     [Range(-100,100)]
     public int NHOr = 0;
-    public Quests[] NHQuestUnlock;
-    public Quests[] NHQuestlock;
+    public List<Quests> NHQuestUnlock = new List<Quests>();
+    public List<Quests> NHQuestlock = new List<Quests>();
     public Quests NHPlayAfter;
     public GameOver NHGameOver;
     ///LOOSE AREA///
@@ -76,8 +76,8 @@ public class Quests : ScriptableObject
     public int LooseExperience = 0;
     [Range(-100,100)]
     public int LooseOr = 0;
-    public Quests[] LooseQuestUnlock;
-    public Quests[] LooseQuestlock;
+    public List<Quests> LooseQuestUnlock = new List<Quests>();
+    public List<Quests> LooseQuestlock = new List<Quests>();
     public Quests LoosePlayAfter;
     public GameOver LooseGameOver;
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,12 +13,18 @@ namespace SA.QuestEditor
         #region Variables GUI
         bool compactNode = true; //GUI
         bool boxDescription = false; //GUI
+        int height_boxDescription = 250;
         bool boxConditions = false; //GUI
+        int height_boxConditions = 150;
         bool boxWinArea = false; //GUI
+        int height_boxWinArea = 500;
         bool boxNothingArea = false; //GUI
+        int height_boxNothingArea = 0;
         bool boxLooseArea = false; //GUI
+        int height_boxLooseArea = 0;
         #endregion
         Quests quest;
+        Quests AddLinkquest;
         string newQuestName= "";
         
 
@@ -89,13 +96,13 @@ namespace SA.QuestEditor
                     if (boxDescription != true && GUILayout.Button("Open Description"))
                     {
                         boxDescription = true;
-                        windowRect.height += 250;
+                        windowRect.height += height_boxDescription;
                     }
 
                     if (boxDescription && GUILayout.Button("Reduce Description"))
                     {
                         boxDescription = false;
-                        windowRect.height -= 250;
+                        windowRect.height -= height_boxDescription;
                     }
                     #endregion
                     if (boxDescription)
@@ -111,9 +118,17 @@ namespace SA.QuestEditor
                     }
                     #region Conditions button
                     if (boxConditions != true && GUILayout.Button("Open Conditions"))
+                    {
                         boxConditions = true;
+                        windowRect.height += height_boxConditions;
+                    }
+                        
                     if (boxConditions && GUILayout.Button("Reduce Conditions"))
+                    {
                         boxConditions = false;
+                        windowRect.height -= height_boxConditions;
+                    }
+                        
                     #endregion
                     if (boxConditions)
                     {
@@ -131,14 +146,69 @@ namespace SA.QuestEditor
                     }
                     #region Win Area button
                     if (boxWinArea != true && GUILayout.Button("Open Win sttings"))
+                    {
                         boxWinArea = true;
+                        windowRect.height += height_boxWinArea;
+                        windowRect.height += (25 * quest.WinQuestlock.Count);
+                        windowRect.height += (25 * quest.WinQuestUnlock.Count);
+                    }
+                        
                     if (boxWinArea && GUILayout.Button("Reduce Win sttings"))
+                    {
                         boxWinArea = false;
+                        windowRect.height -= (25 * quest.WinQuestlock.Count);
+                        windowRect.height -= (25 * quest.WinQuestUnlock.Count);
+                        windowRect.height -= height_boxWinArea;
+                    }
+                        
                     #endregion
                     if (boxWinArea)
                     {
-                        #region Win Panel /empty/
-                        GUILayout.Label("_____Win Panel_____");
+                        #region Win Panel 9/9
+                        GUILayout.Label("WinDescription");
+                        EditorGUILayout.TextArea(quest.WinDescription, GUILayout.Height(100));
+                        GUILayout.Label("ENWinDescription");
+                        EditorGUILayout.TextArea(quest.ENWinDescription, GUILayout.Height(100));
+                        GUILayout.Label("WinReputation" + quest.WinReputation);
+                        quest.WinReputation = Convert.ToInt32(GUILayout.HorizontalSlider(Convert.ToSingle(quest.WinReputation), -100, 100));
+                        GUILayout.Space(5f);
+                        GUILayout.Label("WinExperience" + quest.WinExperience);
+                        quest.WinExperience = Convert.ToInt32(GUILayout.HorizontalSlider(Convert.ToSingle(quest.WinExperience), -100, 100));
+                        GUILayout.Space(5f);
+                        GUILayout.Label("WinOr" + quest.WinOr);
+                        quest.WinOr = Convert.ToInt32(GUILayout.HorizontalSlider(Convert.ToSingle(quest.WinOr), -100, 100));
+                        GUILayout.Space(5f);
+                        GUILayout.Label("WinQuestUnlock [" + quest.WinQuestUnlock.Count+"]");
+                        #region WinQuestUnlock pannel + addButton
+                        for (int i = 0; i < quest.WinQuestUnlock.Count; i++)
+                        {
+                            quest.WinQuestUnlock[i] = (Quests)EditorGUILayout.ObjectField(quest.WinQuestUnlock[i], typeof(Quests), false);
+                            if (quest.WinQuestUnlock[i] == null) quest.WinQuestUnlock.RemoveAt(i);
+                        }
+                        GUILayout.Label("add quest to unlock when win");
+                        AddLinkquest = (Quests)EditorGUILayout.ObjectField(AddLinkquest, typeof(Quests), false);
+                        if (GUILayout.Button("add"))
+                        {
+                            quest.WinQuestUnlock.Add(AddLinkquest);//AddLinkquest
+                        }
+
+                        #endregion
+                        #region WinQuestlock pannel + addButton
+                        for (int i = 0; i < quest.WinQuestlock.Count; i++)
+                        {
+                            quest.WinQuestlock[i] = (Quests)EditorGUILayout.ObjectField(quest.WinQuestlock[i], typeof(Quests), false);
+                            if (quest.WinQuestlock[i] == null) quest.WinQuestlock.RemoveAt(i);
+                        }
+                        GUILayout.Label("add quest to unlock when win");
+                        AddLinkquest = (Quests)EditorGUILayout.ObjectField(AddLinkquest, typeof(Quests), false);
+                        if (GUILayout.Button("add"))
+                        {
+                            quest.WinQuestlock.Add(AddLinkquest);//AddLinkquest
+                        }
+
+                        #endregion
+                        quest.WinPlayAfter = (Quests)EditorGUILayout.ObjectField(quest.WinPlayAfter, typeof(Quests), false);
+                        quest.WinGameOver = (GameOver)EditorGUILayout.ObjectField(quest.WinGameOver, typeof(GameOver), false);
                         #endregion
                     }
                     if (quest.AllowError)
