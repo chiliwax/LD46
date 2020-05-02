@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using System;
 using System.Linq;
-public class Inventory : MonoBehaviour
+public class Crafter : MonoBehaviour
 {
     private recipes[] recipes;
     [SerializeField] [HideInInspector] List<Item> items;
