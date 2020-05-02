@@ -6,21 +6,21 @@ using UnityEngine;
 public class Quests : ScriptableObject
 {
     [Header("Quest Info")]
-    public string QuestName;
-    public string ENQuestName;
+    public string QuestName = "";
+    public string ENQuestName = "";
     [TextArea(5, 20)]
     [Multiline]
-    public string description;
+    public string description = "";
     [TextArea(5, 20)]
     [Multiline]
-    public string ENDescription;
+    public string ENDescription = "";
     public bool IsLock;
     [Header("Requirement")]
-    public int reputationMini;
-    public int experienceMini;
+    public int reputationMini = 0;
+    public int experienceMini = 0;
     [Tooltip("LEGACY")]
     [Range(0, 30)]
-    public int dificulty;
+    public int dificulty = 0;
 
     [Header("Condition")]
     public bool AllowError = true;
@@ -31,10 +31,10 @@ public class Quests : ScriptableObject
     [Header("Win")]
     [TextArea(5, 20)]
     [Multiline]
-    public string WinDescription;
+    public string WinDescription = "";
     [TextArea(5, 20)]
     [Multiline]
-    public string ENWinDescription;
+    public string ENWinDescription = "";
     [Range(-100,100)]
     public int WinReputation = 0;
     [Range(0,100)]
@@ -49,10 +49,10 @@ public class Quests : ScriptableObject
     [Header("Nothing Happen")]
     [TextArea(5, 20)]
     [Multiline]
-    public string NHDescription;
+    public string NHDescription = "";
     [TextArea(5, 20)]
     [Multiline]
-    public string ENNHDescription;
+    public string ENNHDescription = "";
     [Range(-100,100)]
     public int NHReputation = 0;
     [Range(0,100)]
@@ -67,10 +67,10 @@ public class Quests : ScriptableObject
     [Header("Loose")]
     [TextArea(5, 20)]
     [Multiline]
-    public string LooseDescription;
+    public string LooseDescription = "";
     [TextArea(5, 20)]
     [Multiline]
-    public string ENLooseDescription;
+    public string ENLooseDescription = "";
     [Range(-100,100)]
     public int LooseReputation = 0;
     [Range(0,100)]

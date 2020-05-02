@@ -17,7 +17,7 @@ namespace SA.QuestEditor
 
         public enum UserActions
         {
-            addQuest,deleteNode, addComment
+            addQuest, addTransitionNode, deleteNode,addComment
         }
 
         #endregion
@@ -40,9 +40,9 @@ namespace SA.QuestEditor
             DrawWindows();
         }
 
-        private void OnEnable() //reset editor when he start, DELETE FOR FINAL VERSION
+        private void OnEnable() //clear editor STATUE OFF
         {
-            windows.Clear();
+            //windows.Clear();
         }
 
         void DrawWindows()
@@ -139,28 +139,28 @@ namespace SA.QuestEditor
             e.Use();
         }
 
-        void ContextCallback(object o)
+        void ContextCallback(object o) // effet des actions
         {
             UserActions a = (UserActions)o;
             switch (a)
             {
                 case UserActions.addQuest:
-                    QuestNode questNode = new QuestNode 
-                    { 
-                        windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 300),
-                        windowTitle = "Quest"
-                    };
+                    QuestNode questNode = ScriptableObject.CreateInstance<QuestNode>();
+                    questNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 150);
+                    questNode.windowTitle = "Quest";
                     windows.Add(questNode);
 
                     break;
+                case UserActions.addTransitionNode:
+                    break;
                 case UserActions.addComment:
-                    CommentNode commentNode = new CommentNode
-                    {
-                        windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100),
-                        windowTitle = "Comment"
-                    };
+                    CommentNode commentNode = ScriptableObject.CreateInstance<CommentNode>();
+                    commentNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
+                    commentNode.windowTitle = "Comment";
                     windows.Add(commentNode);
 
+                    break;
+                default:
                     break;
                 case UserActions.deleteNode:
                     if (selectedNode != null)
