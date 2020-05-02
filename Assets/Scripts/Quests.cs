@@ -14,7 +14,6 @@ public class Quests : ScriptableObject
     [TextArea(5, 20)]
     [Multiline]
     public string ENDescription;
-    public bool IsLock;
     [Header("Requirement")]
     public int reputationMini;
     public int experienceMini;
