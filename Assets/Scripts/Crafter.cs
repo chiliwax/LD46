@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEditor;
-using System;
 using System.Linq;
 public class Crafter : MonoBehaviour
 {
+    [SerializeField] Transform ItemResult = null;
+    [SerializeField] [HideInInspector] List<Item> items = null;
+    private Transform itemsParent;
     private recipes[] recipes;
-    [SerializeField] [HideInInspector] List<Item> items;
-    [SerializeField] Transform itemsParent;
-    [SerializeField] ItemSlot[] itemSlots;
-    [Space]
-    [SerializeField] Transform ItemResult;
+    private ItemSlot[] itemSlots;
     private ItemSlot craft;
 
 
@@ -23,23 +18,15 @@ public class Crafter : MonoBehaviour
 
     private void OnValidate()
     {
-        if (itemsParent != null)
-        {
-            itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
-        }
+        itemsParent = this.gameObject.transform.GetChild(0);
+        if (itemsParent) { itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>(); }
         RefreshUI();
     }
     private void RefreshUI()
     {
         int i = 0;
-        for (; i < items.Count && i < itemSlots.Length; i++)
-        {
-            itemSlots[i].Item = items[i];
-        }
-        for (; i < itemSlots.Length; i++)
-        {
-            itemSlots[i].Item = null;
-        }
+        for (; i < items.Count && i < itemSlots.Length; i++) { itemSlots[i].Item = items[i]; }
+        for (; i < itemSlots.Length; i++) { itemSlots[i].Item = null; }
     }
 
     public void AddItem(Item item)
@@ -48,17 +35,11 @@ public class Crafter : MonoBehaviour
             return;
         items.Add(item);
         RefreshUI();
-        return;
     }
 
     public void RemoveItem(int i)
     {
-        if (items.Remove(items[i]))
-        {
-            RefreshUI();
-            return;
-        }
-        return;
+        if (items.Remove(items[i])) { RefreshUI(); }
     }
 
     public void Craft()
@@ -67,13 +48,13 @@ public class Crafter : MonoBehaviour
         if (!craft) { craft = ItemResult.GetComponent<ItemSlot>(); }
         craft.Item = null;
         itemsParent.GetComponent<SolveDisolve>().disolve();
-        List<Item> OrderCrafted = items.OrderBy(o=>o.objectName).ToList();
+        List<Item> OrderCrafted = items.OrderBy(o => o.objectName).ToList();
 
         items.RemoveRange(0, items.Count);
         Debug.Log("NBreceip : " + recipes.Length.ToString());
         foreach (var recipe in recipes)
         {
-            List<Item> OrderRecipe = recipe.items.OrderBy(o=>o.objectName).ToList();
+            List<Item> OrderRecipe = recipe.items.OrderBy(o => o.objectName).ToList();
             if (OrderCrafted.SequenceEqual(OrderRecipe))
             {
                 craft.Item = recipe.result;
