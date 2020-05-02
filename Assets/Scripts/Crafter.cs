@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+
 public class Crafter : MonoBehaviour
 {
     [SerializeField] Transform ItemResult = null;
@@ -9,7 +10,6 @@ public class Crafter : MonoBehaviour
     private recipes[] recipes;
     private ItemSlot[] itemSlots;
     private ItemSlot craft;
-
 
     private void Start()
     {
@@ -22,6 +22,7 @@ public class Crafter : MonoBehaviour
         if (itemsParent) { itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>(); }
         RefreshUI();
     }
+
     private void RefreshUI()
     {
         int i = 0;
@@ -47,13 +48,12 @@ public class Crafter : MonoBehaviour
         if (!craft) { craft = ItemResult.GetComponent<ItemSlot>(); }
         craft.Item = null;
         itemsParent.GetComponent<SolveDisolve>().disolve();
-        List<Item> OrderCrafted = items.OrderBy(o => o.objectName).ToList();
-
+        List<Item> OrderCrafted = items.OrderBy(item => item.objectName).ToList();
         items.RemoveRange(0, items.Count);
         Debug.Log("NBreceip : " + recipes.Length.ToString());
         foreach (var recipe in recipes)
         {
-            List<Item> OrderRecipe = recipe.items.OrderBy(o => o.objectName).ToList();
+            List<Item> OrderRecipe = recipe.items.OrderBy(item => item.objectName).ToList();
             if (OrderCrafted.SequenceEqual(OrderRecipe))
             {
                 craft.Item = recipe.result;
