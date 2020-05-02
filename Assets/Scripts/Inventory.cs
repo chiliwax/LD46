@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEditor;
 using System;
 
@@ -65,11 +66,14 @@ public class Inventory : MonoBehaviour
     public void Craft()
     {
         craft = ItemResult.GetComponentInChildren<ItemSlot>();
+        if (!craft) {
+            craft = ItemResult.GetComponent<ItemSlot>();
+        }
         craft.Item = null;
 
         List<String> list1 = new List<String> { };
         List<String> list2 = new List<String> { };
-
+        itemsParent.GetComponent<SolveDisolve>().disolve();
         foreach (var item in items)
         {
             list1.Add(item.objectName);
@@ -93,8 +97,6 @@ public class Inventory : MonoBehaviour
                 {
                     if (list1[i] != list2[i])
                     {
-                        items.RemoveRange(0, items.Count);
-                        RefreshUI();
                         pass = false;
                     }
                 }
@@ -109,6 +111,7 @@ public class Inventory : MonoBehaviour
                 {
                     item.blocksRaycasts = false;
                 }
+                craft.GetComponentInParent<SolveDisolve>().solve();
             }
         }
         items.RemoveRange(0, items.Count);
