@@ -46,7 +46,7 @@ namespace SA.QuestEditor
                     }
                     else
                     {
-                        GUILayout.Label("A new quest need a name !");
+                        Debug.LogError("A new quest need a name !");
                     }
                 }
                 GUILayout.Space(20f);
@@ -141,7 +141,7 @@ namespace SA.QuestEditor
                         GUILayout.Label("_____Win Panel_____");
                         #endregion
                     }
-                    if (AllowError)
+                    if (quest.AllowError)
                     {
                         #region Nothing Area button
                         if (boxNothingArea != true && GUILayout.Button("Open Nothing sttings"))
