@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _Menu;
+    private GameObject _Menu = null;
     private bool FlipFlop;
     void Start()
     {
