@@ -15,7 +15,11 @@ public class SolveDisolve : MonoBehaviour
 
     void Start()
     {
-        mat = gameObject.GetComponent<Image>().material;
+        mat = gameObject.GetComponentInChildren<Image>().material;
+        if (!mat)
+        {
+            mat = gameObject.GetComponent<Image>().material;
+        }
         if (DisplayStart)
         {
             mat.SetFloat("_Fade", 1);
