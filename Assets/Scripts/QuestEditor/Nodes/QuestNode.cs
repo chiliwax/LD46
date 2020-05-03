@@ -19,9 +19,9 @@ namespace SA.QuestEditor
         bool boxWinArea = false; //GUI
         int height_boxWinArea = 500;
         bool boxNothingArea = false; //GUI
-        int height_boxNothingArea = 0;
+        int height_boxNothingArea = 500;
         bool boxLooseArea = false; //GUI
-        int height_boxLooseArea = 0;
+        int height_boxLooseArea = 500;
         #endregion
         Quests quest;
         Quests AddLinkquest;
@@ -215,9 +215,21 @@ namespace SA.QuestEditor
                     {
                         #region Nothing Area button
                         if (boxNothingArea != true && GUILayout.Button("Open Nothing sttings"))
+                        {
+                            windowRect.height += (25 * quest.NHQuestlock.Count);
+                            windowRect.height += (25 * quest.NHQuestUnlock.Count);
+                            windowRect.height += height_boxNothingArea;
                             boxNothingArea = true;
+                        }
+                            
                         if (boxNothingArea && GUILayout.Button("Reduce Nothing sttings"))
+                        {
+                            windowRect.height -= (25 * quest.NHQuestlock.Count);
+                            windowRect.height -= (25 * quest.NHQuestUnlock.Count);
+                            windowRect.height -= height_boxNothingArea;
                             boxNothingArea = false;
+                        }
+                            
                         #endregion
                         if (boxNothingArea)
                         {
@@ -271,9 +283,20 @@ namespace SA.QuestEditor
                     }
                     #region Loose Area button
                     if (boxLooseArea != true && GUILayout.Button("Open Loose sttings"))
+                    {
+                        windowRect.height += (25 * quest.LooseQuestlock.Count);
+                        windowRect.height += (25 * quest.LooseQuestUnlock.Count);
+                        windowRect.height += height_boxLooseArea;
                         boxLooseArea = true;
+                    }
                     if (boxLooseArea && GUILayout.Button("Reduce Loose sttings"))
+                    {
+                        windowRect.height -= (25 * quest.LooseQuestlock.Count);
+                        windowRect.height -= (25 * quest.LooseQuestUnlock.Count);
+                        windowRect.height -= height_boxLooseArea;
                         boxLooseArea = false;
+                    }
+                        
                     #endregion
                     if (boxLooseArea)
                     {
