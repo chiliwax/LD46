@@ -2,8 +2,7 @@
 # Created by https://www.gitignore.io/api/unity,android,monodevelop,visualstudio,visualstudiocode,emacs
 # Edit at https://www.gitignore.io/?templates=unity,android,monodevelop,visualstudio,visualstudiocode,emacs
 
-#arthur merci
-**.kra.meta 
+
 
 #emacs tempo file
 **~ 
@@ -255,3 +254,7 @@ StyleCopReport.xml
 #graph source image
 *.kra
 *.kra~
+**.kra.meta 
+*.psd
+*.psd~
+*.psd.meta
