@@ -146,7 +146,7 @@ namespace SA.QuestEditor
             {
                 case UserActions.addQuest:
                     QuestNode questNode = ScriptableObject.CreateInstance<QuestNode>();
-                    questNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 150);
+                    questNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 125);
                     questNode.windowTitle = "Quest";
                     windows.Add(questNode);
 
