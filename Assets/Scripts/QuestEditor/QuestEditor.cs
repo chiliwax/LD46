@@ -17,7 +17,7 @@ namespace SA.QuestEditor
 
         public enum UserActions
         {
-            addQuest, addTransitionNode, deleteNode,addComment
+            addQuest, addTransitionNode, deleteNode,addComment, openSettings
         }
 
         #endregion
@@ -114,6 +114,7 @@ namespace SA.QuestEditor
         {
             GenericMenu menu = new GenericMenu();
             menu.AddSeparator("");
+            menu.AddItem(new GUIContent("OpenSettings"), false, ContextCallback, UserActions.openSettings);
             menu.AddItem(new GUIContent("Add Quest"), false, ContextCallback, UserActions.addQuest);
             menu.AddItem(new GUIContent("Add Comment"), false, ContextCallback, UserActions.addComment);
 
@@ -127,13 +128,19 @@ namespace SA.QuestEditor
             if (selectedNode is QuestNode)
             {
                 menu.AddSeparator("");
-                menu.AddItem(new GUIContent("Delete"), false, ContextCallback, UserActions.deleteNode);
+                menu.AddItem(new GUIContent("Close quest"), false, ContextCallback, UserActions.deleteNode);
             }
 
             if (selectedNode is CommentNode)
             {
                 menu.AddSeparator("");
-                menu.AddItem(new GUIContent("Delete"), false, ContextCallback, UserActions.deleteNode);
+                menu.AddItem(new GUIContent("Delete Comment"), false, ContextCallback, UserActions.deleteNode);
+            }
+
+            if (selectedNode is SettingsNode)
+            {
+                menu.AddSeparator("");
+                menu.AddItem(new GUIContent("Close Settings"), false, ContextCallback, UserActions.deleteNode);
             }
             menu.ShowAsContext();
             e.Use();
@@ -159,6 +166,11 @@ namespace SA.QuestEditor
                     commentNode.windowTitle = "Comment";
                     windows.Add(commentNode);
 
+                    break;
+                case UserActions.openSettings:
+                    SettingsNode settingsNode = ScriptableObject.CreateInstance<SettingsNode>();
+                    settingsNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
+                    settingsNode.windowTitle = "Settings";
                     break;
                 default:
                     break;

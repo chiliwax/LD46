@@ -8,6 +8,7 @@ public class Quests : ScriptableObject
     [Header("Quest Info")]
     public string QuestName = "";
     public string ENQuestName = "";
+    public Campaign campagne;
     [TextArea(5, 20)]
     [Multiline]
     public string description = "";

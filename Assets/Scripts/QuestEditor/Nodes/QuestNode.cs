@@ -15,7 +15,7 @@ namespace SA.QuestEditor
         int height_boxBaseClose = 125;
         bool compactNode = true; //GUI
         bool boxDescription = false; //GUI
-        int height_boxDescription = 250;
+        int height_boxDescription = 275;
         bool boxConditions = false; //GUI
         int height_boxConditions = 75;
         bool boxWinArea = false; //GUI
@@ -127,7 +127,10 @@ namespace SA.QuestEditor
                     if (boxDescription)
                     {
                         #region Description 2/2
-
+                        GUILayout.BeginHorizontal();
+                        GUILayout.Label("Campagne");
+                        quest.campagne = (Campaign)EditorGUILayout.ObjectField(quest.campagne, typeof(Campaign), false);
+                        GUILayout.EndHorizontal();
                         GUILayout.Label("description");
                         EditorGUILayout.TextArea(quest.description, GUILayout.Height(100));
                         //description = GUILayout.TextArea(description, 300);
