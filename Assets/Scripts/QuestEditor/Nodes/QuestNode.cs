@@ -72,6 +72,7 @@ namespace SA.QuestEditor
             #region quest
             else
             {
+                this.windowTitle = ("Quest: "+quest.QuestName);
                 #region compact button
                 if (compactNode != true && GUILayout.Button("-", 
                     GUILayout.Height(25), GUILayout.Width(25), GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true)))
@@ -423,20 +424,22 @@ namespace SA.QuestEditor
         }
         public override void DrawCurve()
         {
-            #region position depart curve
-
-            #endregion
             #region curve
             if (quest != null)
             {
-                QuestEditor.AddExistingQuest(quest);
                 QuestEditor.LookForQuestNodeAndDrawCurve
                     (this, quest.WinPlayAfter, Color.green);
                 QuestEditor.LookForQuestNodeAndDrawCurve
-                    (this, quest.NHPlayAfter, new Color(0.5f, 0.5f, 0, 1));
+                    (this, quest.WinQuestUnlock, new Color(0, .7f, 0, 1));
+                QuestEditor.LookForQuestNodeAndDrawCurve
+                    (this, quest.NHPlayAfter, new Color(0, 0, 0, 1));
+                QuestEditor.LookForQuestNodeAndDrawCurve
+                    (this, quest.NHQuestUnlock, new Color(.3f, 0, 0, 1));
                 QuestEditor.LookForQuestNodeAndDrawCurve
                     (this, quest.LoosePlayAfter, Color.red);
-                
+                QuestEditor.LookForQuestNodeAndDrawCurve
+                    (this, quest.LooseQuestUnlock, new Color(.7f, 0, 0, 1));
+
             }
 
             #endregion
