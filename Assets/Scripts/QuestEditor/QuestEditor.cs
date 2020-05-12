@@ -217,14 +217,6 @@ namespace SA.QuestEditor
         public static void LookForQuestNodeAndDrawCurve(Rect host, List<Quests> qListe, Color color){
             foreach (Quests q in qListe)
                 QuestEditor.LookForQuestNodeAndDrawCurve(host, q, color);}
-        public static void MajCurve()
-        {
-            foreach (QuestNode qn in windows)
-            {
-
-                qn.majCurve = true;
-            }
-        }
 
         #endregion
     }

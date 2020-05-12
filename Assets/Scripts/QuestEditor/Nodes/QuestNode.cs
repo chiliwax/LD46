@@ -430,7 +430,6 @@ namespace SA.QuestEditor
             #region curve
             if (quest != null)
             {
-                majCurve = false;
                 QuestEditor.AddExistingQuest(quest);
                 QuestEditor.LookForQuestNodeAndDrawCurve
                     (rect, quest.WinPlayAfter, Color.green);
