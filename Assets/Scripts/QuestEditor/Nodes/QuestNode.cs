@@ -423,20 +423,20 @@ namespace SA.QuestEditor
         }
         public override void DrawCurve()
         {
-            Rect rect = windowRect;
-            rect.y += windowRect.height * .5f;
-            rect.width = 1;
-            rect.height = 1;
+            #region position depart curve
+
+            #endregion
             #region curve
             if (quest != null)
             {
                 QuestEditor.AddExistingQuest(quest);
                 QuestEditor.LookForQuestNodeAndDrawCurve
-                    (rect, quest.WinPlayAfter, Color.green);
+                    (this, quest.WinPlayAfter, Color.green);
                 QuestEditor.LookForQuestNodeAndDrawCurve
-                    (rect, quest.LoosePlayAfter, Color.red);
+                    (this, quest.NHPlayAfter, new Color(0.5f, 0.5f, 0, 1));
                 QuestEditor.LookForQuestNodeAndDrawCurve
-                    (rect, quest.NHPlayAfter, Color.gray);
+                    (this, quest.LoosePlayAfter, Color.red);
+                
             }
 
             #endregion

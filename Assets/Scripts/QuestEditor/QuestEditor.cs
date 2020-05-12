@@ -198,7 +198,7 @@ namespace SA.QuestEditor
             }
             Handles.DrawBezier(startPos, endPos, startTan, endTan, color, null, 3);
         }
-        public static void LookForQuestNodeAndDrawCurve(Rect host, Quests q, Color color)
+        public static void LookForQuestNodeAndDrawCurve(QuestNode host, Quests q, Color color)
         {
             if (q != null)
             {
@@ -207,14 +207,31 @@ namespace SA.QuestEditor
                 {
                     if (qNode.quest == q)
                     {
+                        float positionCurve = (.5f  + (color.r - color.g)/4);
+                        #region position depart curve
+                        Rect recthost = host.windowRect;
+                        recthost.y += host.windowRect.height * positionCurve;
+                        recthost.x += host.windowRect.width;
+                        recthost.width = 1;
+                        recthost.height = 1;
+                        #endregion
+                        #region position arrivé curve
                         find.Add(qNode);
-                        DrawNodeCurve(host, qNode.windowRect, false, color);
+                        Rect rect = qNode.windowRect;
+                        rect.y += qNode.windowRect.height * positionCurve;
+                        rect.width = 1;
+                        rect.height = 1;
+                        #endregion
+                        #region decalage depart/arrivé curve en fonction de la couleur
+
+                        #endregion
+                        DrawNodeCurve(recthost, rect, false, color);
                     }
                 }
             }
 
         }
-        public static void LookForQuestNodeAndDrawCurve(Rect host, List<Quests> qListe, Color color){
+        public static void LookForQuestNodeAndDrawCurve(QuestNode host, List<Quests> qListe, Color color){
             foreach (Quests q in qListe)
                 QuestEditor.LookForQuestNodeAndDrawCurve(host, q, color);}
 
