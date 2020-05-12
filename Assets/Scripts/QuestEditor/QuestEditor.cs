@@ -196,7 +196,7 @@ namespace SA.QuestEditor
             {
                 Handles.DrawBezier(startPos, endPos, startTan, endTan, shadow, null, (i+1)*.5f);
             }
-            Handles.DrawBezier(startPos, endPos, startTan, endTan, color, null, 1);
+            Handles.DrawBezier(startPos, endPos, startTan, endTan, color, null, 3);
         }
         public static void LookForQuestNodeAndDrawCurve(Rect host, Quests q, Color color)
         {

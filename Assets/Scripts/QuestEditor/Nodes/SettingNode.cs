@@ -30,13 +30,6 @@ namespace SA.QuestEditor
                 //ouvre toute les quêtes
             }
             GUILayout.EndHorizontal();
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Curve");
-            if (GUILayout.Button("maj"))
-            {
-                QuestEditor.MajCurve();
-            }
-            GUILayout.EndHorizontal();
         }
 
     }

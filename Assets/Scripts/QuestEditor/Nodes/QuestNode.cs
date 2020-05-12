@@ -28,7 +28,6 @@ namespace SA.QuestEditor
         public Quests quest;
         Quests AddLinkquest;
         string newQuestName= "";
-        public bool majCurve = true;
         
 
         public override void DrawWidow()
