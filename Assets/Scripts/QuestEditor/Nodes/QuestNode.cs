@@ -25,9 +25,10 @@ namespace SA.QuestEditor
         bool boxLooseArea = false; //GUI
         int height_boxLooseArea = 450;
         #endregion
-        Quests quest;
+        public Quests quest;
         Quests AddLinkquest;
         string newQuestName= "";
+        public bool majCurve = true;
         
 
         public override void DrawWidow()
@@ -185,7 +186,7 @@ namespace SA.QuestEditor
                         windowRect.height -= (25 * quest.WinQuestUnlock.Count);
                         windowRect.height -= height_boxWinArea;
                     }
-                        
+
                     #endregion
                     if (boxWinArea)
                     {
@@ -194,7 +195,7 @@ namespace SA.QuestEditor
                         EditorGUILayout.TextArea(quest.WinDescription, GUILayout.Height(100));
                         GUILayout.Label("ENWinDescription");
                         EditorGUILayout.TextArea(quest.ENWinDescription, GUILayout.Height(100));
-                        
+
                         GUILayout.BeginHorizontal();
                         GUILayout.Label("Gain Reput ");
                         quest.WinReputation = int.Parse(GUILayout.TextField(Convert.ToString(quest.WinReputation), GUILayout.Width(35f)));
@@ -213,7 +214,7 @@ namespace SA.QuestEditor
                         quest.WinExperience = Convert.ToInt32(GUILayout.HorizontalSlider(Convert.ToSingle(quest.WinOr), -100, 100, GUILayout.Width(75f)));
                         GUILayout.EndHorizontal();
 
-                        GUILayout.Label("WinQuestUnlock [" + quest.WinQuestUnlock.Count+"]");
+                        GUILayout.Label("WinQuestUnlock [" + quest.WinQuestUnlock.Count + "]");
                         #region WinQuestUnlock pannel + addButton
                         for (int i = 0; i < quest.WinQuestUnlock.Count; i++)
                         {
@@ -245,9 +246,16 @@ namespace SA.QuestEditor
                         }
                         GUILayout.EndHorizontal();
                         #endregion
+                        GUILayout.BeginHorizontal();
+                        GUILayout.Label("Next Quest:");
                         quest.WinPlayAfter = (Quests)EditorGUILayout.ObjectField(quest.WinPlayAfter, typeof(Quests), false);
+                        GUILayout.EndHorizontal();
+                        GUILayout.BeginHorizontal();
+                        GUILayout.Label("EndGame:");
                         quest.WinGameOver = (GameOver)EditorGUILayout.ObjectField(quest.WinGameOver, typeof(GameOver), false);
+                        GUILayout.EndHorizontal();
                         #endregion
+
                     }
                     if (quest.AllowError)
                     {
@@ -410,14 +418,32 @@ namespace SA.QuestEditor
                 }
             }
             #endregion
+            
 
 
         }
-
         public override void DrawCurve()
         {
+            Rect rect = windowRect;
+            rect.y += windowRect.height * .5f;
+            rect.width = 1;
+            rect.height = 1;
+            #region curve
+            if (quest != null)
+            {
+                majCurve = false;
+                QuestEditor.AddExistingQuest(quest);
+                QuestEditor.LookForQuestNodeAndDrawCurve
+                    (rect, quest.WinPlayAfter, Color.green);
+                QuestEditor.LookForQuestNodeAndDrawCurve
+                    (rect, quest.LoosePlayAfter, Color.red);
+                QuestEditor.LookForQuestNodeAndDrawCurve
+                    (rect, quest.NHPlayAfter, Color.gray);
+            }
+
+            #endregion
         }
-        
+
     }
 }
 

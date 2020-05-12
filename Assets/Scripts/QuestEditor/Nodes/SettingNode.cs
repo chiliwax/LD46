@@ -1,26 +1,26 @@
 ﻿using SA.QuestEditor;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 namespace SA.QuestEditor
 {
-    public class SettingsNode : BaseNode
+    public class SettingNode : BaseNode
     {
-        
-        Campaign PHcampaign;
+        Campaign pHcampaign;
         public override void DrawWidow()
         {
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Load campaign");
-            PHcampaign = (Campaign)EditorGUILayout.ObjectField(PHcampaign, typeof(Campaign), false);
+            pHcampaign = (Campaign)EditorGUILayout.ObjectField(pHcampaign, typeof(Campaign), false);
             if (GUILayout.Button("open"))
             {
                 //ouvre toute les quêtes lié a la campagne
+                foreach (Quests q in pHcampaign.GetQuests()){
+                    QuestEditor.AddExistingQuest(q);
+                }
             }
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
@@ -30,9 +30,14 @@ namespace SA.QuestEditor
                 //ouvre toute les quêtes
             }
             GUILayout.EndHorizontal();
-            
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Curve");
+            if (GUILayout.Button("maj"))
+            {
+                QuestEditor.MajCurve();
+            }
+            GUILayout.EndHorizontal();
         }
-        
 
     }
 }

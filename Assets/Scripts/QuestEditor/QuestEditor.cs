@@ -9,15 +9,16 @@ namespace SA.QuestEditor
     public class QuestEditor : EditorWindow
     {
         #region Variables
-        static List<BaseNode> windows = new List<BaseNode>();
+        public static List<BaseNode> windows = new List<BaseNode>();
         Vector3 mousePosition;
         bool makeTransition;
         bool clickedOnWindow;
         BaseNode selectedNode;
 
+
         public enum UserActions
         {
-            addQuest, addTransitionNode, deleteNode,addComment, openSettings
+            addQuest, addTransitionNode, deleteNode, openSettings
         }
 
         #endregion
@@ -110,18 +111,20 @@ namespace SA.QuestEditor
             }
         }
 
-        void AddNewNode(Event e)
+        public void AddNewNode(Event e)
         {
             GenericMenu menu = new GenericMenu();
             menu.AddSeparator("");
-            menu.AddItem(new GUIContent("OpenSettings"), false, ContextCallback, UserActions.openSettings);
             menu.AddItem(new GUIContent("Add Quest"), false, ContextCallback, UserActions.addQuest);
-            menu.AddItem(new GUIContent("Add Comment"), false, ContextCallback, UserActions.addComment);
+            menu.AddItem(new GUIContent("OpenSettings"), false, ContextCallback, UserActions.openSettings);
 
             menu.ShowAsContext();
             e.Use();
         }
-
+        public static void AddExistingQuest(Quests q)
+        {
+            Debug.Log("add quest ");
+        }
         void ModifyNode(Event e)
         {      
             GenericMenu menu = new GenericMenu();
@@ -131,17 +134,12 @@ namespace SA.QuestEditor
                 menu.AddItem(new GUIContent("Close quest"), false, ContextCallback, UserActions.deleteNode);
             }
 
-            if (selectedNode is CommentNode)
-            {
-                menu.AddSeparator("");
-                menu.AddItem(new GUIContent("Delete Comment"), false, ContextCallback, UserActions.deleteNode);
-            }
-
-            if (selectedNode is SettingsNode)
+            if (selectedNode is SettingNode)
             {
                 menu.AddSeparator("");
                 menu.AddItem(new GUIContent("Close Settings"), false, ContextCallback, UserActions.deleteNode);
             }
+
             menu.ShowAsContext();
             e.Use();
         }
@@ -160,19 +158,12 @@ namespace SA.QuestEditor
                     break;
                 case UserActions.addTransitionNode:
                     break;
-                case UserActions.addComment:
-                    CommentNode commentNode = ScriptableObject.CreateInstance<CommentNode>();
-                    commentNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
-                    commentNode.windowTitle = "Comment";
-                    windows.Add(commentNode);
-
-                    break;
                 case UserActions.openSettings:
-                    SettingsNode settingsNode = ScriptableObject.CreateInstance<SettingsNode>();
-                    settingsNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
-                    settingsNode.windowTitle = "Settings";
-                    break;
-                default:
+                    SettingNode SettingNode = ScriptableObject.CreateInstance<SettingNode>();
+                    SettingNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
+                    SettingNode.windowTitle = "Settings";
+                    windows.Add(SettingNode);
+
                     break;
                 case UserActions.deleteNode:
                     if (selectedNode != null)
@@ -187,6 +178,54 @@ namespace SA.QuestEditor
         #endregion
 
         #region Helper Methods
+
+        public static void DrawNodeCurve(Rect start, Rect end, bool left, Color color)
+        {
+            if (color == null) color = Color.black;
+            Vector3 startPos = new Vector3(
+                (left) ? start.x + start.width : start.x,
+                start.y + (start.height *.5f),
+                0);
+            Vector3 endPos = new Vector3(end.x + (end.width * .5f), end.y + (end.height * .5f), 0);
+            Vector3 startTan = startPos + Vector3.right * 50;
+            Vector3 endTan = endPos + Vector3.left * 50;
+
+
+            Color shadow = new Color(0, 0, 0, 0.06f);
+            for (int i = 0; i < 3; i++)
+            {
+                Handles.DrawBezier(startPos, endPos, startTan, endTan, shadow, null, (i+1)*.5f);
+            }
+            Handles.DrawBezier(startPos, endPos, startTan, endTan, color, null, 1);
+        }
+        public static void LookForQuestNodeAndDrawCurve(Rect host, Quests q, Color color)
+        {
+            if (q != null)
+            {
+                List<QuestNode> find = new List<QuestNode>();
+                foreach (QuestNode qNode in windows)
+                {
+                    if (qNode.quest == q)
+                    {
+                        find.Add(qNode);
+                        DrawNodeCurve(host, qNode.windowRect, false, color);
+                    }
+                }
+            }
+
+        }
+        public static void LookForQuestNodeAndDrawCurve(Rect host, List<Quests> qListe, Color color){
+            foreach (Quests q in qListe)
+                QuestEditor.LookForQuestNodeAndDrawCurve(host, q, color);}
+        public static void MajCurve()
+        {
+            foreach (QuestNode qn in windows)
+            {
+
+                qn.majCurve = true;
+            }
+        }
+
         #endregion
     }
 }
