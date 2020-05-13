@@ -14,6 +14,7 @@ namespace SA.QuestEditor
         bool makeTransition;
         bool clickedOnWindow;
         BaseNode selectedNode;
+        bool settingOpen;
 
 
         public enum UserActions
@@ -90,6 +91,7 @@ namespace SA.QuestEditor
         void RightClick(Event e)
         {
             selectedNode = null;
+            clickedOnWindow = false;
             for (int i = 0; i < windows.Count; i++)
             {    
                 if (windows[i].windowRect.Contains(e.mousePosition))
@@ -129,12 +131,13 @@ namespace SA.QuestEditor
         void ModifyNode(Event e)
         {      
             GenericMenu menu = new GenericMenu();
+            
             if (selectedNode is QuestNode)
             {
                 menu.AddSeparator("");
                 menu.AddItem(new GUIContent("Close quest"), false, ContextCallback, UserActions.deleteNode);
             }
-
+            
             if (selectedNode is SettingNode)
             {
                 menu.AddSeparator("");
@@ -158,7 +161,7 @@ namespace SA.QuestEditor
                     OptionNode optionNode = ScriptableObject.CreateInstance<OptionNode>();
                     optionNode.windowRect = new Rect(mousePosition.x, mousePosition.y-50, 60, 50);
                     optionNode.windowTitle = "Quest";
-                    optionNode.questLink = questNode;
+                    optionNode.nodeLink = questNode;
                     windows.Add(optionNode);
 
 
@@ -166,11 +169,26 @@ namespace SA.QuestEditor
                 case UserActions.OptionNode:
                     break;
                 case UserActions.openSettings:
-                    SettingNode SettingNode = ScriptableObject.CreateInstance<SettingNode>();
-                    SettingNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
-                    SettingNode.windowTitle = "Settings";
-                    windows.Add(SettingNode);
-
+                    settingOpen = false;
+                    foreach (SettingNode sn in windows)
+                    {
+                        Debug.Log("plop");
+                        sn.windowRect = new Rect(mousePosition.x, mousePosition.y,
+                            sn.windowRect.width, sn.windowRect.height);
+                        settingOpen = true;
+                    }
+                    if (!settingOpen)
+                    {
+                        SettingNode settingNode = ScriptableObject.CreateInstance<SettingNode>();
+                        settingNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
+                        settingNode.windowTitle = "Quest Editor";
+                        windows.Add(settingNode);
+                        OptionNode optionNode2 = ScriptableObject.CreateInstance<OptionNode>();
+                        optionNode2.windowRect = new Rect(mousePosition.x, mousePosition.y - 50, 60, 50);
+                        optionNode2.windowTitle = "Setting";
+                        optionNode2.nodeLink = settingNode;
+                        windows.Add(optionNode2);
+                    }
                     break;
                 case UserActions.deleteNode:
                     if (selectedNode != null)
