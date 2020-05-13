@@ -28,8 +28,12 @@ namespace SA.QuestEditor
         public Quests quest;
         Quests AddLinkquest;
         string newQuestName= "";
+        Rect compactLineRect;
         
+        void OnGUI()
+        {
 
+        }
         public override void DrawWidow()
         {
 
@@ -38,7 +42,6 @@ namespace SA.QuestEditor
             #region EditorStyles
             EditorStyles.textField.wordWrap = true;
             #endregion
-
             #region new/load quest
             if (quest == null)
             {
@@ -72,7 +75,7 @@ namespace SA.QuestEditor
             #region quest
             else
             {
-                this.windowTitle = ("Quest: "+quest.QuestName);
+                this.windowTitle = (quest.QuestName);
                 #region compact button
                 if (compactNode != true && GUILayout.Button("-", 
                     GUILayout.Height(25), GUILayout.Width(25), GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true)))

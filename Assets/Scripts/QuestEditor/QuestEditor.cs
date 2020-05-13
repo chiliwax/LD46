@@ -18,7 +18,7 @@ namespace SA.QuestEditor
 
         public enum UserActions
         {
-            addQuest, addTransitionNode, deleteNode, openSettings
+            addQuest, OptionNode, deleteNode, openSettings
         }
 
         #endregion
@@ -91,7 +91,7 @@ namespace SA.QuestEditor
         {
             selectedNode = null;
             for (int i = 0; i < windows.Count; i++)
-            {
+            {    
                 if (windows[i].windowRect.Contains(e.mousePosition))
                 {
                     clickedOnWindow = true;
@@ -107,6 +107,7 @@ namespace SA.QuestEditor
             }
             else
             {
+
                 ModifyNode(e);
             }
         }
@@ -152,11 +153,17 @@ namespace SA.QuestEditor
                 case UserActions.addQuest:
                     QuestNode questNode = ScriptableObject.CreateInstance<QuestNode>();
                     questNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 125);
-                    questNode.windowTitle = "Quest";
+                    questNode.windowTitle = "Empty";
                     windows.Add(questNode);
+                    OptionNode optionNode = ScriptableObject.CreateInstance<OptionNode>();
+                    optionNode.windowRect = new Rect(mousePosition.x, mousePosition.y-50, 60, 50);
+                    optionNode.windowTitle = "Quest";
+                    optionNode.questLink = questNode;
+                    windows.Add(optionNode);
+
 
                     break;
-                case UserActions.addTransitionNode:
+                case UserActions.OptionNode:
                     break;
                 case UserActions.openSettings:
                     SettingNode SettingNode = ScriptableObject.CreateInstance<SettingNode>();
@@ -177,7 +184,7 @@ namespace SA.QuestEditor
 
         #endregion
 
-        #region Helper Methods
+        #region Helper Draw curveMethods
 
         public static void DrawNodeCurve(Rect start, Rect end, bool left, Color color)
         {
