@@ -30,7 +30,7 @@ MonoBehaviour:
   WinOr: 0
   WinQuestUnlock: []
   WinQuestlock: []
-  WinPlayAfter: {fileID: 0}
+  WinPlayAfter: {fileID: 11400000, guid: e0e8537cc7a336440a1e86228443fd9e, type: 2}
   WinGameOver: {fileID: 0}
   NHDescription: 
   ENNHDescription: 
@@ -39,7 +39,7 @@ MonoBehaviour:
   NHOr: 0
   NHQuestUnlock: []
   NHQuestlock: []
-  NHPlayAfter: {fileID: 0}
+  NHPlayAfter: {fileID: 11400000, guid: 5cd5a07a63c24bd45a8d3bef30cafd6d, type: 2}
   NHGameOver: {fileID: 0}
   LooseDescription: 
   ENLooseDescription: 
@@ -48,7 +48,7 @@ MonoBehaviour:
   LooseOr: 0
   LooseQuestUnlock: []
   LooseQuestlock: []
-  LoosePlayAfter: {fileID: 0}
+  LoosePlayAfter: {fileID: 11400000, guid: 61b556ece05ef1d45adc5bf7dd982170, type: 2}
   LooseGameOver: {fileID: 0}
   end: 0
   IsWin: 0

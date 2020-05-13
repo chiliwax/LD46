@@ -158,37 +158,28 @@ namespace SA.QuestEditor
                     questNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 125);
                     questNode.windowTitle = "Empty";
                     windows.Add(questNode);
-                    OptionNode optionNode = ScriptableObject.CreateInstance<OptionNode>();
-                    optionNode.windowRect = new Rect(mousePosition.x, mousePosition.y-50, 60, 50);
-                    optionNode.windowTitle = "Quest";
-                    optionNode.nodeLink = questNode;
-                    windows.Add(optionNode);
+                    //OptionNode optionNode = ScriptableObject.CreateInstance<OptionNode>();
+                    //optionNode.windowRect = new Rect(mousePosition.x, mousePosition.y-50, 60, 50);
+                    //optionNode.windowTitle = "Quest";
+                    //optionNode.nodeLink = questNode;
+                    //windows.Add(optionNode);
 
 
                     break;
                 case UserActions.OptionNode:
                     break;
                 case UserActions.openSettings:
-                    settingOpen = false;
-                    foreach (SettingNode sn in windows)
-                    {
-                        Debug.Log("plop");
-                        sn.windowRect = new Rect(mousePosition.x, mousePosition.y,
-                            sn.windowRect.width, sn.windowRect.height);
-                        settingOpen = true;
-                    }
-                    if (!settingOpen)
-                    {
-                        SettingNode settingNode = ScriptableObject.CreateInstance<SettingNode>();
-                        settingNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
-                        settingNode.windowTitle = "Quest Editor";
-                        windows.Add(settingNode);
-                        OptionNode optionNode2 = ScriptableObject.CreateInstance<OptionNode>();
-                        optionNode2.windowRect = new Rect(mousePosition.x, mousePosition.y - 50, 60, 50);
-                        optionNode2.windowTitle = "Setting";
-                        optionNode2.nodeLink = settingNode;
-                        windows.Add(optionNode2);
-                    }
+
+                    SettingNode settingNode = ScriptableObject.CreateInstance<SettingNode>();
+                    settingNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
+                    settingNode.windowTitle = "Quest Editor";
+                    windows.Add(settingNode);
+                    //OptionNode optionNode2 = ScriptableObject.CreateInstance<OptionNode>();
+                    //optionNode2.windowRect = new Rect(mousePosition.x, mousePosition.y - 50, 60, 50);
+                    //optionNode2.windowTitle = "Setting";
+                    //optionNode2.nodeLink = settingNode;
+                    //windows.Add(optionNode2);
+
                     break;
                 case UserActions.deleteNode:
                     if (selectedNode != null)
