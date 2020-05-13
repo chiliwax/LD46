@@ -17,6 +17,7 @@ namespace SA.QuestEditor
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("x", GUILayout.Height(25), GUILayout.Width(25))) {
                 QuestEditor.windows.Remove(nodeLink);
+                DestroyImmediate(nodeLink);
             }
             if (GUILayout.Button("-", GUILayout.Height(25), GUILayout.Width(25))) { 
                 //compact quest in link

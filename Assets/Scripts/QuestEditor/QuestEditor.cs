@@ -42,9 +42,14 @@ namespace SA.QuestEditor
             DrawWindows();
         }
 
-        private void OnEnable() //clear editor STATUE OFF
+        private void OnEnable() //clear editor
         {
             //windows.Clear();
+            foreach (BaseNode q in Resources.FindObjectsOfTypeAll(typeof(BaseNode)))
+            {
+                if (!windows.Contains(q))
+                DestroyImmediate(q);
+            }
         }
 
         void DrawWindows()
@@ -158,11 +163,11 @@ namespace SA.QuestEditor
                     questNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 125);
                     questNode.windowTitle = "Empty";
                     windows.Add(questNode);
-                    //OptionNode optionNode = ScriptableObject.CreateInstance<OptionNode>();
-                    //optionNode.windowRect = new Rect(mousePosition.x, mousePosition.y-50, 60, 50);
-                    //optionNode.windowTitle = "Quest";
-                    //optionNode.nodeLink = questNode;
-                    //windows.Add(optionNode);
+                    OptionNode optionNode = ScriptableObject.CreateInstance<OptionNode>();
+                    optionNode.windowRect = new Rect(mousePosition.x, mousePosition.y-50, 60, 50);
+                    optionNode.windowTitle = "Quest";
+                    optionNode.nodeLink = questNode;
+                    windows.Add(optionNode);
 
 
                     break;
@@ -174,17 +179,18 @@ namespace SA.QuestEditor
                     settingNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
                     settingNode.windowTitle = "Quest Editor";
                     windows.Add(settingNode);
-                    //OptionNode optionNode2 = ScriptableObject.CreateInstance<OptionNode>();
-                    //optionNode2.windowRect = new Rect(mousePosition.x, mousePosition.y - 50, 60, 50);
-                    //optionNode2.windowTitle = "Setting";
-                    //optionNode2.nodeLink = settingNode;
-                    //windows.Add(optionNode2);
+                    OptionNode optionNode2 = ScriptableObject.CreateInstance<OptionNode>();
+                    optionNode2.windowRect = new Rect(mousePosition.x, mousePosition.y - 50, 60, 50);
+                    optionNode2.windowTitle = "Setting";
+                    optionNode2.nodeLink = settingNode;
+                    windows.Add(optionNode2);
 
                     break;
                 case UserActions.deleteNode:
                     if (selectedNode != null)
                     {
                         windows.Remove(selectedNode);
+                        DestroyImmediate(selectedNode);
                     }
 
                     break;
@@ -219,7 +225,7 @@ namespace SA.QuestEditor
             if (q != null)
             {
                 List<QuestNode> find = new List<QuestNode>();
-                foreach (QuestNode qNode in windows)
+                foreach (QuestNode qNode in Resources.FindObjectsOfTypeAll(typeof(QuestNode)))
                 {
                     if (qNode.quest == q)
                     {
