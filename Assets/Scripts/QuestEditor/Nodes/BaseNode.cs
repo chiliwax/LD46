@@ -8,6 +8,7 @@ namespace SA.QuestEditor
     {
         public Rect windowRect;
         public string windowTitle;
+        public bool compactOptionNode = false; //GUI
         public virtual void DrawWidow()
         {
 

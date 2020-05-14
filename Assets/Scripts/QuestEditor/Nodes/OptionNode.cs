@@ -9,6 +9,7 @@ namespace SA.QuestEditor
     public class OptionNode : BaseNode
     {
         public BaseNode nodeLink;
+        private float saveHeight = 200;
 
         public override void DrawWidow()
         {
@@ -20,7 +21,19 @@ namespace SA.QuestEditor
                 DestroyImmediate(nodeLink);
             }
             if (GUILayout.Button("-", GUILayout.Height(25), GUILayout.Width(25))) { 
-                //compact quest in link
+                if (nodeLink.compactOptionNode)
+                {
+                    nodeLink.compactOptionNode = false;
+                    nodeLink.windowRect.height = saveHeight;
+                    nodeLink.windowRect.width = 200;
+                }
+                else
+                {
+                    nodeLink.compactOptionNode = true;
+                    saveHeight = nodeLink.windowRect.height;
+                    nodeLink.windowRect.height = 50;
+                    nodeLink.windowRect.width = 100;
+                }
             }
             GUILayout.EndHorizontal();
 
