@@ -15,14 +15,18 @@ namespace SA.QuestEditor
         bool clickedOnWindow;
         BaseNode selectedNode;
         bool settingOpen;
-
+        //color
+        public static GUIStyle buttonStyleGreen;
+        public static GUIStyle buttonStyleGreenL;
+        public static GUIStyle buttonStyleGrey;
+        public static GUIStyle buttonStyleRed;
+        public static GUIStyle buttonStyleRedL;
+        #endregion
 
         public enum UserActions
         {
             addQuest, OptionNode, deleteNode, openSettings
         }
-
-        #endregion
 
         #region Init
         [MenuItem("Quest Editor/Editor")]
@@ -40,6 +44,18 @@ namespace SA.QuestEditor
             mousePosition = e.mousePosition;
             UserInput(e);
             DrawWindows();
+
+            //color
+            buttonStyleGreen = new GUIStyle(GUI.skin.button);
+            buttonStyleGreen.normal.textColor = Color.green;
+            buttonStyleGreenL = new GUIStyle(GUI.skin.button);
+            buttonStyleGreenL.normal.textColor = new Color(0, .7f, 0, 1);
+            buttonStyleGrey = new GUIStyle(GUI.skin.button);
+            buttonStyleGrey.normal.textColor = new Color(.3f, 0, 0, 1);
+            buttonStyleRed = new GUIStyle(GUI.skin.button);
+            buttonStyleRed.normal.textColor = Color.red;
+            buttonStyleRedL = new GUIStyle(GUI.skin.button);
+            buttonStyleRedL.normal.textColor = new Color(.7f, 0, 0, 1);
         }
 
         private void OnEnable() //clear editor
@@ -278,7 +294,7 @@ namespace SA.QuestEditor
         public static void AddExistingQuest(Quests q, float x, float y)
         {
             QuestNode questNode = ScriptableObject.CreateInstance<QuestNode>();
-            questNode.windowRect = new Rect(x, y, 200, 125);
+            questNode.windowRect = new Rect(x, y, 200, 225);
             questNode.windowTitle = "Empty";
             windows.Add(questNode);
             questNode.quest = q;
@@ -290,16 +306,13 @@ namespace SA.QuestEditor
         }
         public static void AddExistingQuest(Campaign campaign, float x, float y)
         {
-            Debug.Log("// add init");
             foreach (Quests q in Resources.LoadAll<Quests>("/"))
             {
                 if (q.campagne != null)
                 {
-                    Debug.Log("look " + q.QuestName + "." + q.campagne.name);
                     if (q.campagne == campaign)
                     {
                         AddExistingQuest(q, x, y);
-                        Debug.Log("-> add " + q.name);
                     }
                 }
                 

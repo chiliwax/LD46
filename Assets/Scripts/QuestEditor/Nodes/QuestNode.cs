@@ -11,9 +11,8 @@ namespace SA.QuestEditor
     public class QuestNode : BaseNode
     {
         #region Variables GUI
+        //size
         int height_boxBase = 225;
-        int height_boxBaseClose = 125;
-        bool compactNode = true; //GUI
         bool boxDescription = false; //GUI
         int height_boxDescription = 275;
         bool boxConditions = false; //GUI
@@ -24,14 +23,15 @@ namespace SA.QuestEditor
         int height_boxNothingArea = 450;
         bool boxLooseArea = false; //GUI
         int height_boxLooseArea = 450;
+        
         #endregion
         public Quests quest;
         Quests AddLinkquest;
         string newQuestName= "";
-        Rect compactLineRect;
-        
-        void OnGUI()
+
+        void OnEnable()
         {
+            
 
         }
         public override void DrawWidow()
@@ -42,6 +42,53 @@ namespace SA.QuestEditor
             #region EditorStyles
             EditorStyles.textField.wordWrap = true;
             #endregion
+            if (quest != null)
+            {
+                #region open quest link
+                GUILayout.BeginHorizontal();
+                bool questHere;
+                if (quest.WinPlayAfter != null)
+                {
+                    questHere = false;
+                    foreach (QuestNode qNode in Resources.FindObjectsOfTypeAll(typeof(QuestNode)))
+                        if (qNode.quest == quest.WinPlayAfter)
+                        {
+                            questHere = true;
+                            break;
+                        }
+                    if (!questHere && GUILayout.Button("+", QuestEditor.buttonStyleGreen))
+                    {
+                    }
+                }
+                if (quest.NHPlayAfter != null)
+                {
+                    questHere = false;
+                    foreach (QuestNode qNode in Resources.FindObjectsOfTypeAll(typeof(QuestNode)))
+                        if (qNode.quest == quest.NHPlayAfter)
+                        {
+                            questHere = true;
+                            break;
+                        }
+                    if (!questHere && GUILayout.Button("+"))
+                    {
+                    }
+                }
+                if (quest.LoosePlayAfter != null)
+                {
+                    questHere = false;
+                    foreach (QuestNode qNode in Resources.FindObjectsOfTypeAll(typeof(QuestNode)))
+                        if (qNode.quest == quest.LoosePlayAfter)
+                        {
+                            questHere = true;
+                            break;
+                        }
+                    if (!questHere && GUILayout.Button("+", QuestEditor.buttonStyleRed))
+                    {
+                    }
+                }
+                GUILayout.EndHorizontal();
+                #endregion
+            }
             if (!compactOptionNode)
             {
                 #region new/load quest
@@ -70,7 +117,7 @@ namespace SA.QuestEditor
                     GUILayout.Label("Load Quest");
                     quest = (Quests)EditorGUILayout.ObjectField(quest, typeof(Quests), false);
                     GUILayout.EndHorizontal();
-                    if (quest != null) windowRect.height = height_boxBaseClose;
+                    if (quest != null) windowRect.height = height_boxBase;
 
                 }
                 #endregion
@@ -78,27 +125,7 @@ namespace SA.QuestEditor
                 else
                 {
                     this.windowTitle = (quest.name);
-                    #region compact button
-                    if (compactNode != true && GUILayout.Button("-",
-                        GUILayout.Height(25), GUILayout.Width(25), GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true)))
-                    {
-                        compactNode = true;
-                        boxConditions = false;
-                        boxDescription = false;
-                        boxLooseArea = false;
-                        boxNothingArea = false;
-                        boxWinArea = false;
-                        windowRect.height = height_boxBaseClose;
-                    }
-
-                    if (compactNode && GUILayout.Button("+",
-                        GUILayout.Height(25), GUILayout.Width(25), GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true)))
-                    {
-                        compactNode = false;
-                        windowRect.height = height_boxBase;
-                    }
-
-                    #endregion
+                    
                     #region Load another quest
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Load Another Quest");
@@ -115,8 +142,6 @@ namespace SA.QuestEditor
                     quest.ENQuestName = GUILayout.TextField(quest.ENQuestName, 19);
                     GUILayout.EndHorizontal();
                     #endregion
-                    if (compactNode != true)
-                    {
                         #region Description button
                         if (boxDescription != true && GUILayout.Button("Open Description"))
                         {
@@ -420,7 +445,6 @@ namespace SA.QuestEditor
                             quest.LooseGameOver = (GameOver)EditorGUILayout.ObjectField(quest.LooseGameOver, typeof(GameOver), false);
                             #endregion
                         }
-                    }
                 }
                 #endregion
 

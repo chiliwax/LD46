@@ -19,7 +19,6 @@ namespace SA.QuestEditor
                 pHcampaign = (Campaign)EditorGUILayout.ObjectField(pHcampaign, typeof(Campaign), false);
                 if (GUILayout.Button("open"))
                 {
-                    Debug.Log("//Load "+ pHcampaign.name +"...");
                     QuestEditor.AddExistingQuest(pHcampaign, 0, 0);
                 }
                 GUILayout.EndHorizontal();
