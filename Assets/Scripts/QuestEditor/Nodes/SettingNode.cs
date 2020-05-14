@@ -11,27 +11,53 @@ namespace SA.QuestEditor
         Campaign pHcampaign;
         public override void DrawWidow()
         {
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Load campaign");
-            pHcampaign = (Campaign)EditorGUILayout.ObjectField(pHcampaign, typeof(Campaign), false);
-            if (GUILayout.Button("open"))
+            if (!compactOptionNode)
             {
-                //ouvre toute les quêtes lié a la campagne
-                foreach (Quests q in pHcampaign.GetQuests()){
-                    QuestEditor.AddExistingQuest(q);
+
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Load campaign");
+                pHcampaign = (Campaign)EditorGUILayout.ObjectField(pHcampaign, typeof(Campaign), false);
+                if (GUILayout.Button("open"))
+                {
+                    Debug.Log("//Load "+ pHcampaign.name +"...");
+                    QuestEditor.AddExistingQuest(pHcampaign, 0, 0);
                 }
-            }
-            GUILayout.EndHorizontal();
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Load all quest");
-            if (GUILayout.Button("open"))
-            {
-                //ouvre toute les quêtes
-            }
-            GUILayout.EndHorizontal();
-        }
+                GUILayout.EndHorizontal();
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Load all quest");
+                if (GUILayout.Button("open"))
+                {
+                    //ouvre toute les quêtes
+                }
+                GUILayout.EndHorizontal();
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Clean all other nodes");
+                if (GUILayout.Button("clean"))
+                {
+                    OptionNode optionNodeMaster = null;
+                    foreach (OptionNode on in Resources.FindObjectsOfTypeAll(typeof(OptionNode)))
+                    {
+                        if (on.nodeLink == this)
+                        {
+                            optionNodeMaster = on;
+                            break;
+                        }
+                    }
+                    foreach (BaseNode q in Resources.FindObjectsOfTypeAll(typeof(BaseNode)))
+                    {
+                        if (q != this & q != optionNodeMaster)
+                        {
+                            QuestEditor.windows.Remove(q);
+                            DestroyImmediate(q);
+                        }
 
+                    }
+                }
+                GUILayout.EndHorizontal();
+            }
+        }
     }
+
+    
 }
 

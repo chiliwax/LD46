@@ -77,7 +77,7 @@ namespace SA.QuestEditor
                 #region quest
                 else
                 {
-                    this.windowTitle = (quest.QuestName);
+                    this.windowTitle = (quest.name);
                     #region compact button
                     if (compactNode != true && GUILayout.Button("-",
                         GUILayout.Height(25), GUILayout.Width(25), GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true)))

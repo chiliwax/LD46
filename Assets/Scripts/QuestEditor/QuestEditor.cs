@@ -129,10 +129,7 @@ namespace SA.QuestEditor
             menu.ShowAsContext();
             e.Use();
         }
-        public static void AddExistingQuest(Quests q)
-        {
-            Debug.Log("add quest ");
-        }
+
         void ModifyNode(Event e)
         {      
             GenericMenu menu = new GenericMenu();
@@ -225,10 +222,12 @@ namespace SA.QuestEditor
             if (q != null)
             {
                 List<QuestNode> find = new List<QuestNode>();
+                bool findNode = false;
                 foreach (QuestNode qNode in Resources.FindObjectsOfTypeAll(typeof(QuestNode)))
                 {
                     if (qNode.quest == q)
                     {
+                        findNode = true;
                         float positionCurve = (.5f  + (color.r - color.g)/4);
                         #region position depart curve
                         Rect recthost = host.windowRect;
@@ -249,6 +248,23 @@ namespace SA.QuestEditor
                         #endregion
                         DrawNodeCurve(recthost, rect, false, color);
                     }
+                    if (!findNode)
+                    {
+                        float positionCurve = (.5f + (color.r - color.g) / 4);
+                        #region position depart curve
+                        Rect recthost = host.windowRect;
+                        recthost.y += host.windowRect.height * positionCurve;
+                        recthost.x += host.windowRect.width;
+                        recthost.width = 1;
+                        recthost.height = 1;
+                        #endregion
+                        #region position arrivé curve
+                        Rect rect = new Rect
+                            (recthost.x+5, recthost.y, recthost.width, recthost.height);
+                        #endregion
+
+                        DrawNodeCurve(recthost, rect, false, color);
+                    }
                 }
             }
 
@@ -257,6 +273,38 @@ namespace SA.QuestEditor
             foreach (Quests q in qListe)
                 QuestEditor.LookForQuestNodeAndDrawCurve(host, q, color);}
 
+        #endregion
+        #region Helper add Questnode
+        public static void AddExistingQuest(Quests q, float x, float y)
+        {
+            QuestNode questNode = ScriptableObject.CreateInstance<QuestNode>();
+            questNode.windowRect = new Rect(x, y, 200, 125);
+            questNode.windowTitle = "Empty";
+            windows.Add(questNode);
+            questNode.quest = q;
+            OptionNode optionNode = ScriptableObject.CreateInstance<OptionNode>();
+            optionNode.windowRect = new Rect(x, y - 50, 60, 50);
+            optionNode.windowTitle = "Quest";
+            optionNode.nodeLink = questNode;
+            windows.Add(optionNode);
+        }
+        public static void AddExistingQuest(Campaign campaign, float x, float y)
+        {
+            Debug.Log("// add init");
+            foreach (Quests q in Resources.LoadAll<Quests>("/"))
+            {
+                if (q.campagne != null)
+                {
+                    Debug.Log("look " + q.QuestName + "." + q.campagne.name);
+                    if (q.campagne == campaign)
+                    {
+                        AddExistingQuest(q, x, y);
+                        Debug.Log("-> add " + q.name);
+                    }
+                }
+                
+            }
+        }
         #endregion
     }
 }

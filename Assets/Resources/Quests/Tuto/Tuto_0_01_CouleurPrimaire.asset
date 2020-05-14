@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuestName: Couleur primaire
   ENQuestName: Primary color
+  campagne: {fileID: 11400000, guid: e52997e0f0bfbbf48b3f48545640e82e, type: 2}
   description: 3 potion d'eau, une de chaque couleur
   ENDescription: 3 potion d'eau, une de chaque couleur
-  IsLock: 1
   reputationMini: 0
   experienceMini: 0
   dificulty: 0

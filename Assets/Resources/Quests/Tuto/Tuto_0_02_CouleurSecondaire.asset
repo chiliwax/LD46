@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuestName: coucleur secondaire
   ENQuestName: secondary color
+  campagne: {fileID: 11400000, guid: e52997e0f0bfbbf48b3f48545640e82e, type: 2}
   description: potion orange
   ENDescription: 
-  IsLock: 1
   reputationMini: 0
   experienceMini: 0
   dificulty: 0

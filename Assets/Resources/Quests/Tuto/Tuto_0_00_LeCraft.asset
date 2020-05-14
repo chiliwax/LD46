@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuestName: "Bienvenue dans l'ateli\xE9"
   ENQuestName: Welcome to the etabli
+  campagne: {fileID: 11400000, guid: e52997e0f0bfbbf48b3f48545640e82e, type: 2}
   description: tuto quest 0 give eau+rouge
   ENDescription: tuto quest 0 give eau+rouge
-  IsLock: 0
   reputationMini: 0
   experienceMini: 0
   dificulty: 0
