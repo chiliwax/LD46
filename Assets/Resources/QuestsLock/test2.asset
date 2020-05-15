@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c39450901b64c5c9d6e509db7aea0f, type: 3}
   m_Name: test2
   m_EditorClassIdentifier: 
-  QuestName: 
+  QuestName: test2
   ENQuestName: 
   campagne: {fileID: 11400000, guid: 11d239a3fd4212d479022f44ec439c83, type: 2}
   description: 

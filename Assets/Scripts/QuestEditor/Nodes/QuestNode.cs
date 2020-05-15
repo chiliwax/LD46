@@ -101,7 +101,6 @@ namespace SA.QuestEditor
                     {
                         if (newQuestName != "")
                         {
-                            //TODO vérifie que le nom de quête n'existe pas déja
                             quest = ScriptableObject.CreateInstance<Quests>();
                             AssetDatabase.CreateAsset(quest, "Assets/Resources/QuestsLock/" + newQuestName + ".asset");
                             AssetDatabase.SaveAssets();
@@ -118,6 +117,7 @@ namespace SA.QuestEditor
                     quest = (Quests)EditorGUILayout.ObjectField(quest, typeof(Quests), false);
                     GUILayout.EndHorizontal();
                     if (quest != null) windowRect.height = height_boxBase;
+                    if (quest != null) EditorUtility.SetDirty(quest); //IMPORTANT, sinon les modification ne sont pas sauvegardé
 
                 }
                 #endregion

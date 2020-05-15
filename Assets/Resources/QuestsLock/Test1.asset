@@ -28,7 +28,8 @@ MonoBehaviour:
   WinReputation: 0
   WinExperience: 0
   WinOr: 0
-  WinQuestUnlock: []
+  WinQuestUnlock:
+  - {fileID: 11400000, guid: c3f58f5c6f78f924ea824d45d655d9b6, type: 2}
   WinQuestlock: []
   WinPlayAfter: {fileID: 11400000, guid: e0e8537cc7a336440a1e86228443fd9e, type: 2}
   WinGameOver: {fileID: 0}

@@ -53,6 +53,7 @@ namespace SA.QuestEditor
                     }
                 }
                 GUILayout.EndHorizontal();
+                if (GUILayout.Button("save quests")) AssetDatabase.SaveAssets() ;
             }
         }
     }
