@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuestName: 
   ENQuestName: 
-  campagne: {fileID: 0}
+  campagne: {fileID: 11400000, guid: 11d239a3fd4212d479022f44ec439c83, type: 2}
   description: 
   ENDescription: 
   reputationMini: 0

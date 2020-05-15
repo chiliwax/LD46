@@ -11,7 +11,6 @@ namespace SA.QuestEditor
         #region Variables
         public static List<BaseNode> windows = new List<BaseNode>();
         Vector3 mousePosition;
-        bool makeTransition;
         bool clickedOnWindow;
         BaseNode selectedNode;
         bool settingOpen;
@@ -92,7 +91,7 @@ namespace SA.QuestEditor
 
         void UserInput(Event e)
         {
-            if(e.button == 1 && !makeTransition)
+            if(e.button == 1)
             {
                 if(e.type == EventType.MouseDown)
                 {
@@ -100,7 +99,7 @@ namespace SA.QuestEditor
                 }
             }
 
-            if (e.button == 0 && !makeTransition)
+            if (e.button == 0)
             {
                 if (e.type == EventType.MouseDown)
                 {
@@ -173,6 +172,7 @@ namespace SA.QuestEditor
             {
                 case UserActions.addQuest:
                     QuestNode questNode = ScriptableObject.CreateInstance<QuestNode>();
+                    EditorUtility.SetDirty(questNode); //IMPORTANT, sinon les modification ne sont pas sauvegardé
                     questNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 125);
                     questNode.windowTitle = "Empty";
                     windows.Add(questNode);
@@ -188,15 +188,9 @@ namespace SA.QuestEditor
                     break;
                 case UserActions.openSettings:
 
-                    SettingNode settingNode = ScriptableObject.CreateInstance<SettingNode>();
-                    settingNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100);
-                    settingNode.windowTitle = "Quest Editor";
-                    windows.Add(settingNode);
-                    OptionNode optionNode2 = ScriptableObject.CreateInstance<OptionNode>();
-                    optionNode2.windowRect = new Rect(mousePosition.x, mousePosition.y - 50, 60, 50);
-                    optionNode2.windowTitle = "Setting";
-                    optionNode2.nodeLink = settingNode;
-                    windows.Add(optionNode2);
+                    Quests empty = null;
+                    AddExistingQuest(empty, mousePosition.x, mousePosition.y);
+                    DestroyImmediate(empty);
 
                     break;
                 case UserActions.deleteNode:
@@ -294,6 +288,7 @@ namespace SA.QuestEditor
         public static void AddExistingQuest(Quests q, float x, float y)
         {
             QuestNode questNode = ScriptableObject.CreateInstance<QuestNode>();
+            EditorUtility.SetDirty(questNode); //IMPORTANT, sinon les modification ne sont pas sauvegardé
             questNode.windowRect = new Rect(x, y, 200, 225);
             questNode.windowTitle = "Empty";
             windows.Add(questNode);
@@ -306,8 +301,11 @@ namespace SA.QuestEditor
         }
         public static void AddExistingQuest(Campaign campaign, float x, float y)
         {
-            foreach (Quests q in Resources.LoadAll<Quests>("/"))
+            foreach (Quests q in Resources.LoadAll<Quests>(""))
             {
+                string camp = "";
+                if (q.campagne != null) camp = q.campagne.name;
+                Debug.Log(q.name+" / "+camp);
                 if (q.campagne != null)
                 {
                     if (q.campagne == campaign)
